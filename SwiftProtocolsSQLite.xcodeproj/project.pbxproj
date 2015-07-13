@@ -10,6 +10,8 @@
 		A5B158961B5332C9009CDCB1 /* SwiftProtocolsSQLite.h in Headers */ = {isa = PBXBuildFile; fileRef = A5B158951B5332C9009CDCB1 /* SwiftProtocolsSQLite.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5B1589D1B5332C9009CDCB1 /* SwiftProtocolsSQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B158921B5332C9009CDCB1 /* SwiftProtocolsSQLite.framework */; };
 		A5B158A21B5332C9009CDCB1 /* SwiftProtocolsSQLiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B158A11B5332C9009CDCB1 /* SwiftProtocolsSQLiteTests.swift */; };
+		A5B158B01B533315009CDCB1 /* Cursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B158AD1B533315009CDCB1 /* Cursor.swift */; };
+		A5B158B11B533315009CDCB1 /* SQLiteDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B158AE1B533315009CDCB1 /* SQLiteDatabase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,8 @@
 		A5B1589C1B5332C9009CDCB1 /* SwiftProtocolsSQLiteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftProtocolsSQLiteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5B158A11B5332C9009CDCB1 /* SwiftProtocolsSQLiteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftProtocolsSQLiteTests.swift; sourceTree = "<group>"; };
 		A5B158A31B5332C9009CDCB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5B158AD1B533315009CDCB1 /* Cursor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cursor.swift; sourceTree = "<group>"; };
+		A5B158AE1B533315009CDCB1 /* SQLiteDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDatabase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,7 @@
 		A5B158941B5332C9009CDCB1 /* SwiftProtocolsSQLite */ = {
 			isa = PBXGroup;
 			children = (
+				A5B158AC1B533315009CDCB1 /* database */,
 				A5B158951B5332C9009CDCB1 /* SwiftProtocolsSQLite.h */,
 				A5B158971B5332C9009CDCB1 /* Info.plist */,
 			);
@@ -84,6 +89,16 @@
 				A5B158A31B5332C9009CDCB1 /* Info.plist */,
 			);
 			path = SwiftProtocolsSQLiteTests;
+			sourceTree = "<group>";
+		};
+		A5B158AC1B533315009CDCB1 /* database */ = {
+			isa = PBXGroup;
+			children = (
+				A5B158AD1B533315009CDCB1 /* Cursor.swift */,
+				A5B158AE1B533315009CDCB1 /* SQLiteDatabase.swift */,
+			);
+			name = database;
+			path = ../database;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +208,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5B158B11B533315009CDCB1 /* SQLiteDatabase.swift in Sources */,
+				A5B158B01B533315009CDCB1 /* Cursor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,7 +269,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -294,7 +311,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
