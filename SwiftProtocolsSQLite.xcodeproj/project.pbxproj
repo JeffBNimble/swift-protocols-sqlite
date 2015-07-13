@@ -31,8 +31,8 @@
 		A5B1589C1B5332C9009CDCB1 /* SwiftProtocolsSQLiteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftProtocolsSQLiteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5B158A11B5332C9009CDCB1 /* SwiftProtocolsSQLiteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftProtocolsSQLiteTests.swift; sourceTree = "<group>"; };
 		A5B158A31B5332C9009CDCB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A5B158AD1B533315009CDCB1 /* Cursor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cursor.swift; sourceTree = "<group>"; };
-		A5B158AE1B533315009CDCB1 /* SQLiteDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDatabase.swift; sourceTree = "<group>"; };
+		A5B158AD1B533315009CDCB1 /* Cursor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Cursor.swift; path = ../SwiftProtocolsSQLite/database/Cursor.swift; sourceTree = "<group>"; };
+		A5B158AE1B533315009CDCB1 /* SQLiteDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SQLiteDatabase.swift; path = ../SwiftProtocolsSQLite/database/SQLiteDatabase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
