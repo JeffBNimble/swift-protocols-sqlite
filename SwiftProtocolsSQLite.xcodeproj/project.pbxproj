@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54C186E50EEF5852754B634E /* SQLiteOpenHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18B4E91F258CF8C5C566C /* SQLiteOpenHelper.swift */; };
+		54C187B3737BDAB1F56F6111 /* SQLiteDatabaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18EBEFD1B7E704B9CD0BC /* SQLiteDatabaseFactory.swift */; };
+		54C18CC6D934EA649C190E9D /* SQLStatementBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C1871099AA1D09D4EA2674 /* SQLStatementBuilder.swift */; };
 		A5B158961B5332C9009CDCB1 /* SwiftProtocolsSQLite.h in Headers */ = {isa = PBXBuildFile; fileRef = A5B158951B5332C9009CDCB1 /* SwiftProtocolsSQLite.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5B1589D1B5332C9009CDCB1 /* SwiftProtocolsSQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B158921B5332C9009CDCB1 /* SwiftProtocolsSQLite.framework */; };
 		A5B158A21B5332C9009CDCB1 /* SwiftProtocolsSQLiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B158A11B5332C9009CDCB1 /* SwiftProtocolsSQLiteTests.swift */; };
@@ -25,6 +28,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		54C1871099AA1D09D4EA2674 /* SQLStatementBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLStatementBuilder.swift; sourceTree = "<group>"; };
+		54C18B4E91F258CF8C5C566C /* SQLiteOpenHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SQLiteOpenHelper.swift; path = SwiftProtocolsSQLite/sql/SQLiteOpenHelper.swift; sourceTree = SOURCE_ROOT; };
+		54C18EBEFD1B7E704B9CD0BC /* SQLiteDatabaseFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDatabaseFactory.swift; sourceTree = SOURCE_ROOT; };
 		A5B158921B5332C9009CDCB1 /* SwiftProtocolsSQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftProtocolsSQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5B158951B5332C9009CDCB1 /* SwiftProtocolsSQLite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftProtocolsSQLite.h; sourceTree = "<group>"; };
 		A5B158971B5332C9009CDCB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,6 +60,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		54C184D58AC104847DEDC2A8 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				54C18EBEFD1B7E704B9CD0BC /* SQLiteDatabaseFactory.swift */,
+				54C18B4E91F258CF8C5C566C /* SQLiteOpenHelper.swift */,
+			);
+			name = util;
+			sourceTree = "<group>";
+		};
+		54C186C2FC3673C6CC9115B3 /* sql */ = {
+			isa = PBXGroup;
+			children = (
+				54C1871099AA1D09D4EA2674 /* SQLStatementBuilder.swift */,
+			);
+			path = sql;
+			sourceTree = "<group>";
+		};
 		A5B158881B5332C9009CDCB1 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +101,7 @@
 				A5B158AC1B533315009CDCB1 /* database */,
 				A5B158951B5332C9009CDCB1 /* SwiftProtocolsSQLite.h */,
 				A5B158971B5332C9009CDCB1 /* Info.plist */,
+				54C186C2FC3673C6CC9115B3 /* sql */,
 			);
 			path = SwiftProtocolsSQLite;
 			sourceTree = "<group>";
@@ -96,6 +120,7 @@
 			children = (
 				A5B158AD1B533315009CDCB1 /* Cursor.swift */,
 				A5B158AE1B533315009CDCB1 /* SQLiteDatabase.swift */,
+				54C184D58AC104847DEDC2A8 /* util */,
 			);
 			name = database;
 			path = ../database;
@@ -210,6 +235,9 @@
 			files = (
 				A5B158B11B533315009CDCB1 /* SQLiteDatabase.swift in Sources */,
 				A5B158B01B533315009CDCB1 /* Cursor.swift in Sources */,
+				54C18CC6D934EA649C190E9D /* SQLStatementBuilder.swift in Sources */,
+				54C186E50EEF5852754B634E /* SQLiteOpenHelper.swift in Sources */,
+				54C187B3737BDAB1F56F6111 /* SQLiteDatabaseFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +420,7 @@
 				A5B158A81B5332C9009CDCB1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A5B158A91B5332C9009CDCB1 /* Build configuration list for PBXNativeTarget "SwiftProtocolsSQLiteTests" */ = {
 			isa = XCConfigurationList;
@@ -400,6 +429,7 @@
 				A5B158AB1B5332C9009CDCB1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
