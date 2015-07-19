@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54C186885E57813198BC6001 /* SQLUpdateOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18D4DCF995F84AE4C91CD /* SQLUpdateOperation.swift */; };
 		54C186E50EEF5852754B634E /* SQLiteOpenHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18B4E91F258CF8C5C566C /* SQLiteOpenHelper.swift */; };
 		54C187B3737BDAB1F56F6111 /* SQLiteDatabaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18EBEFD1B7E704B9CD0BC /* SQLiteDatabaseFactory.swift */; };
+		54C1899F25C7BEFB63F6976A /* SQLQueryOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18062CB7EE55D2D3486D1 /* SQLQueryOperation.swift */; };
 		54C18CC6D934EA649C190E9D /* SQLStatementBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C1871099AA1D09D4EA2674 /* SQLStatementBuilder.swift */; };
+		54C18E4D4F5A97E91F45E0D6 /* SQLiteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18523FB07F45191F37CC9 /* SQLiteOperation.swift */; };
 		A5B158961B5332C9009CDCB1 /* SwiftProtocolsSQLite.h in Headers */ = {isa = PBXBuildFile; fileRef = A5B158951B5332C9009CDCB1 /* SwiftProtocolsSQLite.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5B1589D1B5332C9009CDCB1 /* SwiftProtocolsSQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B158921B5332C9009CDCB1 /* SwiftProtocolsSQLite.framework */; };
 		A5B158A21B5332C9009CDCB1 /* SwiftProtocolsSQLiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B158A11B5332C9009CDCB1 /* SwiftProtocolsSQLiteTests.swift */; };
@@ -28,8 +31,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		54C18062CB7EE55D2D3486D1 /* SQLQueryOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLQueryOperation.swift; sourceTree = "<group>"; };
+		54C18523FB07F45191F37CC9 /* SQLiteOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteOperation.swift; sourceTree = "<group>"; };
 		54C1871099AA1D09D4EA2674 /* SQLStatementBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLStatementBuilder.swift; sourceTree = "<group>"; };
 		54C18B4E91F258CF8C5C566C /* SQLiteOpenHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SQLiteOpenHelper.swift; path = SwiftProtocolsSQLite/sql/SQLiteOpenHelper.swift; sourceTree = SOURCE_ROOT; };
+		54C18D4DCF995F84AE4C91CD /* SQLUpdateOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLUpdateOperation.swift; sourceTree = "<group>"; };
 		54C18EBEFD1B7E704B9CD0BC /* SQLiteDatabaseFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDatabaseFactory.swift; sourceTree = SOURCE_ROOT; };
 		A5B158921B5332C9009CDCB1 /* SwiftProtocolsSQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftProtocolsSQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5B158951B5332C9009CDCB1 /* SwiftProtocolsSQLite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftProtocolsSQLite.h; sourceTree = "<group>"; };
@@ -72,7 +78,10 @@
 		54C186C2FC3673C6CC9115B3 /* sql */ = {
 			isa = PBXGroup;
 			children = (
+				54C18523FB07F45191F37CC9 /* SQLiteOperation.swift */,
+				54C18062CB7EE55D2D3486D1 /* SQLQueryOperation.swift */,
 				54C1871099AA1D09D4EA2674 /* SQLStatementBuilder.swift */,
+				54C18D4DCF995F84AE4C91CD /* SQLUpdateOperation.swift */,
 			);
 			path = sql;
 			sourceTree = "<group>";
@@ -238,6 +247,9 @@
 				54C18CC6D934EA649C190E9D /* SQLStatementBuilder.swift in Sources */,
 				54C186E50EEF5852754B634E /* SQLiteOpenHelper.swift in Sources */,
 				54C187B3737BDAB1F56F6111 /* SQLiteDatabaseFactory.swift in Sources */,
+				54C18E4D4F5A97E91F45E0D6 /* SQLiteOperation.swift in Sources */,
+				54C186885E57813198BC6001 /* SQLUpdateOperation.swift in Sources */,
+				54C1899F25C7BEFB63F6976A /* SQLQueryOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

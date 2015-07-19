@@ -65,14 +65,14 @@ protocol SQLiteDatabase {
     /// Parameter parameters: An Array of parameters that are bound to parameter markers in the SQL
     /// Returns: The number of rows inserted/updated/deleted
     /// THrows: A SQLiteDatbaseError if the statement fails
-    func executeUpdate(sqlString: String, parameters:[AnyObject?]) throws -> Int
+    func executeUpdate(sqlString: String, parameters:[AnyObject?]?) throws -> Int
 
     /// executeUpdate: Executes a SQL statement that updates the database in some way
     /// Parameter sqlString: THe SQL string to execute
     /// Parameter parameters: A Dictionary of parameters that are bound to bind variables in the SQL
     /// Returns: The number of rows inserted/updated/deleted
     /// THrows: A SQLiteDatbaseError if the statement fails
-    func executeUpdate(sqlString: String, parameters:[String:AnyObject?]) throws -> Int
+    func executeUpdate(sqlString: String, parameters:[String:AnyObject?]?) throws -> Int
 
     /// executeQuery: Executes a SQL query statement that returns zero or more rows
     /// Parameter sqlString: THe SQL string to execute
@@ -85,12 +85,12 @@ protocol SQLiteDatabase {
     /// Parameter parameters: An Array of parameters that are bound to parameter markers in the SQL
     /// Returns: The number of rows inserted/updated/deleted
     /// THrows: A SQLiteDatbaseError if the statement fails
-    func executeQuery(sqlString: String, parameters:[AnyObject?]) throws -> Cursor
+    func executeQuery(sqlString: String, parameters:[AnyObject?]?) throws -> Cursor
 
     /// executeQuery: Executes a SQL query statement that returns zero or more rows
     /// Parameter sqlString: THe SQL string to execute
     /// Parameter parameters: A Dictionary of parameters that are bound to bind variables in the SQL
     /// Returns: The number of rows inserted/updated/deleted
     /// THrows: A SQLiteDatbaseError if the statement fails
-    func executeQuery(sqlString: String, parameters:[String:AnyObject?]) throws -> Cursor
+    func executeQuery(sqlString: String, parameters:[String:AnyObject?]?) throws -> Cursor
 }
