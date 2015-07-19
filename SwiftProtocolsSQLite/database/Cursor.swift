@@ -136,10 +136,6 @@ public protocol Cursor {
     /// Returns: A Bool indicating whether the row pointer was moved
     func previous() -> Bool
     
-    /// rowCount: Answers the number of rows in the cursor or -1 if not known
-    /// Returns: The number of rows in the cursor
-    func rowCount() -> Int
-    
     /// stringFor: Answer the String value of the column at the specified name
     /// Parameter columnName: The name of the column being referenced
     /// Returns: The String value of the requested column
