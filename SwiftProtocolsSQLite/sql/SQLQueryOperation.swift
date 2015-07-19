@@ -5,17 +5,17 @@
 
 import Foundation
 
-class SQLQueryOperation : SQLiteOperation {
-    var groupBy:String?
-    var having:String?
-    var projection:[String]?
-    var sort:String?
+public class SQLQueryOperation : SQLiteOperation {
+    public var groupBy:String?
+    public var having:String?
+    public var projection:[String]?
+    public var sort:String?
 
-    override init(database: SQLiteDatabase, statementBuilder: SQLStatementBuilder) {
+    public override init(database: SQLiteDatabase, statementBuilder: SQLStatementBuilder) {
         super.init(database: database, statementBuilder: statementBuilder)
     }
 
-    func executeQuery() throws -> Cursor {
+    public func executeQuery() throws -> Cursor {
         guard let table = self.tableName else {
             throw SQLError.MissingTableName
         }

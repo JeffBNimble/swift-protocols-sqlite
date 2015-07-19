@@ -20,7 +20,7 @@ The lifecycle of operations for the helper are as follows:
 
 */
 
-protocol SQLiteOpenHelper {
+public protocol SQLiteOpenHelper {
     /// databaseName: The relative path including the name of the database (i.e. databases/datadragon.sqlite3)
     var databaseName: String { get }
 
@@ -71,20 +71,20 @@ protocol SQLiteOpenHelper {
 /**
  A base class implementation of the SQLiteOpenHelper protocol
  */
-class BaseSQLiteOpenHelper : SQLiteOpenHelper {
-    var databaseName: String
-    var version: Int
+public class BaseSQLiteOpenHelper : SQLiteOpenHelper {
+    public var databaseName: String
+    public var version: Int
 
     private var database:SQLiteDatabase?
     private var databaseFactory:SQLiteDatabaseFactory
 
-    required init(databaseFactory: SQLiteDatabaseFactory, databaseName: String, version: Int) {
+    public required init(databaseFactory: SQLiteDatabaseFactory, databaseName: String, version: Int) {
         self.databaseName = databaseName;
         self.version = version;
         self.databaseFactory = databaseFactory
     }
 
-    func close() throws {
+    public func close() throws {
         guard let db = self.database else {
             return
         }
@@ -92,7 +92,7 @@ class BaseSQLiteOpenHelper : SQLiteOpenHelper {
         try(db.close())
     }
 
-    func getDatabase() throws -> SQLiteDatabase {
+    public func getDatabase() throws -> SQLiteDatabase {
         guard let database = self.database else {
             self.database = self.databaseFactory.createWithPath(self.asAbsolutePath(self.databaseName))
             
@@ -133,19 +133,19 @@ class BaseSQLiteOpenHelper : SQLiteOpenHelper {
         return database
     }
 
-    func onConfigure(database: SQLiteDatabase) {
+    public func onConfigure(database: SQLiteDatabase) {
     }
 
-    func onCreate(database: SQLiteDatabase) {
+    public func onCreate(database: SQLiteDatabase) {
     }
 
-    func onDowngrade(database: SQLiteDatabase, fromOldVersion: Int, toNewVersion: Int) {
+    public func onDowngrade(database: SQLiteDatabase, fromOldVersion: Int, toNewVersion: Int) {
     }
 
-    func onOpen(database: SQLiteDatabase) {
+    public func onOpen(database: SQLiteDatabase) {
     }
 
-    func onUpgrade(database: SQLiteDatabase, fromOldVersion: Int, toNewVersion: Int) {
+    public func onUpgrade(database: SQLiteDatabase, fromOldVersion: Int, toNewVersion: Int) {
     }
 
     private func asAbsolutePath(relativePath:String?) -> String? {

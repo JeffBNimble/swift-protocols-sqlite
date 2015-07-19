@@ -12,18 +12,18 @@ or deletes in a single database table.
 
 */
 
-class SQLUpdateOperation: SQLiteOperation {
+public class SQLUpdateOperation: SQLiteOperation {
     /// An optional map of values that will be inserted/updated where the key is the column name and
     /// the value is the column value
-    var contentValues:[String: AnyObject]?
+    public var contentValues:[String: AnyObject]?
 
-    override init(database: SQLiteDatabase, statementBuilder: SQLStatementBuilder) {
+    public override init(database: SQLiteDatabase, statementBuilder: SQLStatementBuilder) {
         super.init(database: database, statementBuilder: statementBuilder)
     }
 
     /// executeDelete(): Deletes zero or more rows from a database table
     /// - Returns: The count of rows deleted after execution of the statement
-    func executeDelete() throws -> Int {
+    public func executeDelete() throws -> Int {
         guard let table = self.tableName else {
             throw SQLError.MissingTableName
         }
@@ -36,7 +36,7 @@ class SQLUpdateOperation: SQLiteOperation {
 
     /// executeInsert(): Inserts a row into a database table
     /// - Returns: The count of rows inserted after execution of the statement, should be 1
-    func executeInsert() throws -> Int {
+    public func executeInsert() throws -> Int {
         guard let values = self.contentValues else {
             throw SQLError.MissingContentValues
         }
@@ -58,7 +58,7 @@ class SQLUpdateOperation: SQLiteOperation {
 
     /// executeUpdate(): Updates zero or more rows in a database table
     /// - Returns: The count of rows updated after execution of the statement
-    func executeUpdate() throws -> Int {
+    public func executeUpdate() throws -> Int {
         guard let values = self.contentValues else {
             throw SQLError.MissingContentValues
         }

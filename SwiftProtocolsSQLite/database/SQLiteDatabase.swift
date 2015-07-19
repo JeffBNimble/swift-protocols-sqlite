@@ -10,7 +10,7 @@ import Foundation
  * interface for opening and closing, starting, rolling back or committing transactions and
  * executing SQL statements.
  */
-protocol SQLiteDatabase {
+public protocol SQLiteDatabase {
     /// changes: The number of rows inserted/updated/deleted from the last successful SQL statement
     var changes:Int {get}
 

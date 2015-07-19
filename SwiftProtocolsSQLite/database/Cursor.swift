@@ -11,7 +11,7 @@ import Foundation
  * type. The cursor can be positioned forward, backward, relatively, absolutely and to the
  * first and last rows. When finished with a Cursor, it should be closed.
  */
-protocol Cursor {
+public protocol Cursor {
     /// boolFor: Answer the boolean value at the specified column name
     /// Parameter columnName: The name of the column being referenced
     /// Returns: The Bool value at the requested column

@@ -15,7 +15,7 @@ A tableName can either be a simple name (i.e. "Champions") or a complex table jo
 
 */
 
-protocol SQLStatementBuilder {
+public protocol SQLStatementBuilder {
     /// buildDeleteStatement(tableName:String, selection:String?): Creates a SQL DELETE statement
     /// - Parameter tableName: A simple table name
     /// - Parameter selection: An optional selection clause (i.e. "id = ?") or (i.e. "id = :id")
@@ -51,7 +51,7 @@ protocol SQLStatementBuilder {
     func buildUpdateStatement(tableName:String, updatingColumnNames:[String], selection:String?, useNamedParameters:Bool) -> String
 }
 
-class SQLiteStatementBuilder:SQLStatementBuilder {
+public class SQLiteStatementBuilder:SQLStatementBuilder {
     static private let SELECT:String = "SELECT "
     static private let COUNT:String = "count(*)"
     static private let DELETE:String = "DELETE "
@@ -65,7 +65,7 @@ class SQLiteStatementBuilder:SQLStatementBuilder {
     static private let UPDATE:String = "UPDATE "
     static private let WHERE:String = " WHERE "
 
-    func buildDeleteStatement(tableName: String, selection: String?) -> String {
+    public func buildDeleteStatement(tableName: String, selection: String?) -> String {
         var sqlString = "\(SQLiteStatementBuilder.DELETE)\(SQLiteStatementBuilder.FROM)\(tableName)"
 
         if selection != nil && !selection!.isEmpty {
@@ -75,7 +75,7 @@ class SQLiteStatementBuilder:SQLStatementBuilder {
         return sqlString;
     }
 
-    func buildInsertStatement(tableName: String, columnNames: [String], useNamedParameters: Bool = true) -> String {
+    public func buildInsertStatement(tableName: String, columnNames: [String], useNamedParameters: Bool = true) -> String {
         let names = ",".join(columnNames)
         let values = columnNames.map() {columnName in
             useNamedParameters ? ":\(columnName)" : "?"
@@ -85,7 +85,7 @@ class SQLiteStatementBuilder:SQLStatementBuilder {
         return "\(SQLiteStatementBuilder.INSERT_INTO) (\(names)) VALUES (\(valuesString))"
     }
 
-    func buildSelectStatement(tableName: String, projection: [String]?, selection: String?, groupBy: String?, having: String?, sort: String?) -> String {
+    public func buildSelectStatement(tableName: String, projection: [String]?, selection: String?, groupBy: String?, having: String?, sort: String?) -> String {
 
         let projectionColumns = projection ?? [SQLiteStatementBuilder.PROJECTION_ALL]
 
@@ -112,7 +112,7 @@ class SQLiteStatementBuilder:SQLStatementBuilder {
         return sqlString
     }
 
-    func buildUpdateStatement(tableName: String, updatingColumnNames: [String], selection: String?, useNamedParameters: Bool = true) -> String {
+    public func buildUpdateStatement(tableName: String, updatingColumnNames: [String], selection: String?, useNamedParameters: Bool = true) -> String {
         let columnNames = updatingColumnNames.map() {columnName in
             useNamedParameters ? "\(columnName) = :\(columnName)" : "\(columnName) = ?"
         }
