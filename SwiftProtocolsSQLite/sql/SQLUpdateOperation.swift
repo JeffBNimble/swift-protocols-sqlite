@@ -82,7 +82,7 @@ public class SQLUpdateOperation: SQLiteOperation {
         )
     }
 
-    internal func merge(first:[String:AnyObject?]?, second:[String:AnyObject?]?) -> [String:AnyObject?]? {
+    internal func merge(first:[String:AnyObject]?, second:[String:AnyObject]?) -> [String:AnyObject]? {
         if first == nil && second != nil {
             return second
         }
@@ -91,7 +91,7 @@ public class SQLUpdateOperation: SQLiteOperation {
             return first
         }
 
-        var combined = [String:AnyObject?]()
+        var combined = [String:AnyObject]()
         for (key, value) in first! {
             combined[key] = value
         }
