@@ -149,10 +149,17 @@ public class BaseSQLiteOpenHelper : SQLiteOpenHelper {
     }
 
     private func asAbsolutePath(relativePath:String?) -> String? {
+        // If relativePath is nil, just return nil for an in-memory database
         guard let path = relativePath else {
             return nil
         }
+        
+        // If path is an empty string, return an empty string for a temporary database
+        guard path.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0 else {
+            return path
+        }
 
+        // Otherwise, return an absolute path in the apps documents folder
         let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0];
         return documentsPath.stringByAppendingPathComponent(path);
     }
