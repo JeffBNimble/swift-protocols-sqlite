@@ -28,8 +28,8 @@ public class SQLQueryOperation : SQLiteOperation {
                 sort: self.sort)
         let hasNamedParameters = self.namedSelectionArgs != nil
         return hasNamedParameters ?
-            try(self.database.executeQuery(statement, parameters:self.namedSelectionArgs))
+            try self.database.executeQuery(statement, parameters:self.namedSelectionArgs)
             :
-            try(self.database.executeQuery(statement, parameters:self.selectionArgs))
+            try self.database.executeQuery(statement, parameters:self.selectionArgs)
     }
 }

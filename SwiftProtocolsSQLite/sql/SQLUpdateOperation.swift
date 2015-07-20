@@ -28,10 +28,9 @@ public class SQLUpdateOperation: SQLiteOperation {
             throw SQLError.MissingTableName
         }
 
-        return try(
+        return try
             self.database.executeUpdate(self.statementBuilder.buildDeleteStatement(table, selection: self.selection),
                 parameters:self.selectionArgs)
-        )
     }
 
     /// executeInsert(): Inserts a row into a database table
@@ -45,7 +44,7 @@ public class SQLUpdateOperation: SQLiteOperation {
             throw SQLError.MissingTableName
         }
 
-        return try(
+        return try
             self.database.executeUpdate(
                 self.statementBuilder.buildInsertStatement(
                     table,
@@ -53,7 +52,6 @@ public class SQLUpdateOperation: SQLiteOperation {
                     useNamedParameters: true),
                 parameters: values
             )
-        )
     }
 
     /// executeUpdate(): Updates zero or more rows in a database table
@@ -76,9 +74,9 @@ public class SQLUpdateOperation: SQLiteOperation {
         )
 
         return hasNamedParameters ?
-            try(self.database.executeUpdate(statement, parameters:self.merge(values, second:self.namedSelectionArgs)))
+            try self.database.executeUpdate(statement, parameters:self.merge(values, second:self.namedSelectionArgs))
             :
-            try(self.database.executeUpdate(statement, parameters:self.selectionArgs)
+            try self.database.executeUpdate(statement, parameters:self.selectionArgs
         )
     }
 

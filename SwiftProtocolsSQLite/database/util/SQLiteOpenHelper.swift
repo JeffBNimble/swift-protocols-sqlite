@@ -89,7 +89,7 @@ public class BaseSQLiteOpenHelper : SQLiteOpenHelper {
             return
         }
 
-        try(db.close())
+        try db.close()
     }
 
     public func getDatabase() throws -> SQLiteDatabase {
@@ -98,13 +98,13 @@ public class BaseSQLiteOpenHelper : SQLiteOpenHelper {
             
             let db = self.database!
 
-            try(db.open())
-            try(db.startTransaction())
+            try db.open()
+            try db.startTransaction()
 
             self.onConfigure(db)
 
             // If the database version is 0, we just created it
-            let currentVersion:Int = try(self.getCurrentDatabaseVersion())
+            let currentVersion:Int = try self.getCurrentDatabaseVersion()
             if currentVersion == 0 {
                 self.onCreate(db)
             }
@@ -120,12 +120,12 @@ public class BaseSQLiteOpenHelper : SQLiteOpenHelper {
 
             // If the current and new database versions are different, mark the database version with the new version
             if currentVersion != self.version {
-                try(self.setNewDatabaseVersion(self.version))
+                try self.setNewDatabaseVersion(self.version)
             }
 
             self.onOpen(db)
 
-            try(db.commit())
+            try db.commit()
 
             return db
         }
@@ -159,7 +159,7 @@ public class BaseSQLiteOpenHelper : SQLiteOpenHelper {
 
     private func getCurrentDatabaseVersion() throws -> Int {
         let db = self.database!
-        let cursor = try(db.executeQuery("PRAGMA user_version"))
+        let cursor = try db.executeQuery("PRAGMA user_version")
         var version = 0;
 
         if cursor.next() {
@@ -173,7 +173,7 @@ public class BaseSQLiteOpenHelper : SQLiteOpenHelper {
 
     private func setNewDatabaseVersion(version:Int) throws {
         let db = self.database!
-        try(db.executeUpdate("PRAGMA user_version = \(version)"))
+        try db.executeUpdate("PRAGMA user_version = \(version)")
     }
 
 }

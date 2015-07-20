@@ -110,10 +110,10 @@ public protocol Cursor {
     /// Returns: The Int64 value of the requested column
     func longLongIntFor(columnIndex:Int) -> Int64
     
-    /// moveTo: Move the row pointer forward or backward a specified number of rows
+    /// move: Move the row pointer forward or backward a specified number of rows
     /// Parameter offset: The number of rows to move, negative numbers move backward, positive numbers move forward
     /// Returns: A Bool indicating whether the row pointer was moved
-    func moveTo(offset:Int) -> Bool
+    func move(offset:Int) -> Bool
     
     /// moveToFirst: Move the row pointer to the first row
     /// Returns: A Bool indicating whether the row pointer was moved
