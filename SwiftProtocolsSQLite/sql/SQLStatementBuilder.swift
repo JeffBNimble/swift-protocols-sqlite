@@ -64,11 +64,13 @@ public class SQLiteStatementBuilder:SQLStatementBuilder {
     static private let SET:String = " SET "
     static private let UPDATE:String = "UPDATE "
     static private let WHERE:String = " WHERE "
+    
+    public required init() {}
 
     public func buildDeleteStatement(tableName: String, selection: String?) -> String {
         var sqlString = "\(SQLiteStatementBuilder.DELETE)\(SQLiteStatementBuilder.FROM)\(tableName)"
 
-        if selection != nil && !selection!.isEmpty {
+        if let selection = selection {
             sqlString += "\(SQLiteStatementBuilder.WHERE)\(selection)"
         }
 
@@ -93,19 +95,19 @@ public class SQLiteStatementBuilder:SQLStatementBuilder {
 
         var sqlString = "\(SQLiteStatementBuilder.SELECT)\(projectionString)\(SQLiteStatementBuilder.FROM)\(tableName)"
 
-        if selection != nil && !selection!.isEmpty {
+        if let selection = selection {
             sqlString += "\(SQLiteStatementBuilder.WHERE)\(selection)"
         }
 
-        if groupBy != nil && !groupBy!.isEmpty {
+        if let groupBy = groupBy {
             sqlString += "\(SQLiteStatementBuilder.GROUP_BY)\(groupBy)"
         }
 
-        if having != nil && !having!.isEmpty {
+        if let having = having {
             sqlString += "\(SQLiteStatementBuilder.HAVING)\(having)"
         }
 
-        if sort != nil && !sort!.isEmpty {
+        if let sort = sort {
             sqlString += "\(SQLiteStatementBuilder.ORDER_BY)\(sort)"
         }
 
@@ -120,7 +122,7 @@ public class SQLiteStatementBuilder:SQLStatementBuilder {
         let setClause = ",".join(columnNames)
         var sqlString = "\(SQLiteStatementBuilder.UPDATE)\(tableName)\(SQLiteStatementBuilder.SET)\(setClause)"
 
-        if selection != nil && !selection!.isEmpty  {
+        if let selection = selection  {
             sqlString += "\(SQLiteStatementBuilder.WHERE)\(selection)"
         }
 
