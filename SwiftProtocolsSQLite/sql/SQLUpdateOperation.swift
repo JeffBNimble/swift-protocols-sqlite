@@ -27,10 +27,13 @@ public class SQLUpdateOperation: SQLiteOperation {
         guard let table = self.tableName else {
             throw SQLError.MissingTableName
         }
-
-        return try
-            self.database.executeUpdate(self.statementBuilder.buildDeleteStatement(table, selection: self.selection),
-                parameters:self.selectionArgs)
+        
+        let hasNamedParameters = self.namedSelectionArgs != nil
+        let statement = self.statementBuilder.buildDeleteStatement(table, selection: self.selection)
+        return hasNamedParameters ?
+            try self.database.executeUpdate(statement, parameters:self.namedSelectionArgs)
+            :
+            try self.database.executeUpdate(statement, parameters:self.selectionArgs)
     }
 
     /// executeInsert(): Inserts a row into a database table
