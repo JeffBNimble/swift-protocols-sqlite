@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import CocoaLumberjackSwift
 
 /**
 
@@ -22,7 +23,7 @@ The lifecycle of operations for the helper are as follows:
 
 public protocol SQLiteOpenHelper {
     /// databaseName: The relative path including the name of the database (i.e. databases/datadragon.sqlite3)
-    var databaseName: String { get }
+    var databaseName: String? { get }
 
     /// version: The version of the database (used for upgrading/downgrading the database schema)
     var version: Int { get }
@@ -31,7 +32,7 @@ public protocol SQLiteOpenHelper {
     /// - Parameter sqliteDatabaseFactory: A SQLiteDatabaseFactory used to create new SQLiteDatabase instances
     /// - Parameter databaseName: A relative path and database file name (i.e. databases/datadragon.sqlite3)
     /// - Parameter version: The database schema version to use
-    init(databaseFactory: SQLiteDatabaseFactory, databaseName: String, version: Int)
+    init(databaseFactory: SQLiteDatabaseFactory, databaseName: String?, version: Int)
 
     /// close: Close the database
     /// - Throws: A SQLiteDatabaseError if the database cannot be closed
@@ -72,13 +73,13 @@ public protocol SQLiteOpenHelper {
  A base class implementation of the SQLiteOpenHelper protocol
  */
 public class BaseSQLiteOpenHelper : SQLiteOpenHelper {
-    public var databaseName: String
+    public var databaseName: String?
     public var version: Int
 
     private var database:SQLiteDatabase?
     private var databaseFactory:SQLiteDatabaseFactory
 
-    public required init(databaseFactory: SQLiteDatabaseFactory, databaseName: String, version: Int) {
+    public required init(databaseFactory: SQLiteDatabaseFactory, databaseName: String?, version: Int) {
         self.databaseName = databaseName;
         self.version = version;
         self.databaseFactory = databaseFactory
@@ -101,19 +102,23 @@ public class BaseSQLiteOpenHelper : SQLiteOpenHelper {
             try db.open()
             try db.startTransaction()
 
+            DDLogVerbose("Configuring SQLite database...")
             self.onConfigure(db)
 
             // If the database version is 0, we just created it
             let currentVersion:Int = try self.getCurrentDatabaseVersion()
             if currentVersion == 0 {
+                DDLogVerbose("Creating SQLite database...")
                 self.onCreate(db)
             }
 
             // Upgrade or downgrade if necessary
             if currentVersion > 0 {
                 if currentVersion < self.version {
+                    DDLogVerbose("Upgrading SQLite database from V\(currentVersion) to V\(self.version)...")
                     self.onUpgrade(db, fromOldVersion:currentVersion, toNewVersion:self.version)
                 } else if currentVersion > self.version {
+                    DDLogVerbose("Downgrading SQLite database from V\(currentVersion) to V\(self.version)...")
                     self.onDowngrade(db, fromOldVersion:currentVersion, toNewVersion:self.version)
                 }
             }
@@ -123,6 +128,7 @@ public class BaseSQLiteOpenHelper : SQLiteOpenHelper {
                 try self.setNewDatabaseVersion(self.version)
             }
 
+            DDLogVerbose("Opening SQLite database...")
             self.onOpen(db)
 
             try db.commit()
@@ -151,17 +157,21 @@ public class BaseSQLiteOpenHelper : SQLiteOpenHelper {
     private func asAbsolutePath(relativePath:String?) -> String? {
         // If relativePath is nil, just return nil for an in-memory database
         guard let path = relativePath else {
+            DDLogVerbose("Using SQLite in-memory database")
             return nil
         }
         
         // If path is an empty string, return an empty string for a temporary database
         guard path.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) > 0 else {
+            DDLogVerbose("Using SQLite temporary database")
             return path
         }
 
         // Otherwise, return an absolute path in the apps documents folder
         let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0];
-        return documentsPath.stringByAppendingPathComponent(path);
+        let fullPath = documentsPath.stringByAppendingPathComponent(path);
+        DDLogVerbose("Using SQLite database at '\(fullPath)'")
+        return fullPath
     }
 
     private func getCurrentDatabaseVersion() throws -> Int {

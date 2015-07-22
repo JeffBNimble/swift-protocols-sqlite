@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import CocoaLumberjackSwift
 
 /**
 
@@ -30,10 +31,13 @@ public class SQLUpdateOperation: SQLiteOperation {
         
         let hasNamedParameters = self.namedSelectionArgs != nil
         let statement = self.statementBuilder.buildDeleteStatement(table, selection: self.selection)
-        return hasNamedParameters ?
-            try self.database.executeUpdate(statement, parameters:self.namedSelectionArgs)
-            :
-            try self.database.executeUpdate(statement, parameters:self.selectionArgs)
+        if hasNamedParameters {
+            DDLogVerbose("Executing \(statement) with named parameters: \(self.namedSelectionArgs)")
+            return try self.database.executeUpdate(statement, parameters:self.namedSelectionArgs)
+        } else {
+            DDLogVerbose("Executing \(statement) with parameters: \(self.selectionArgs)")
+            return try self.database.executeUpdate(statement, parameters:self.selectionArgs)
+        }
     }
 
     /// executeInsert(): Inserts a row into a database table
@@ -47,14 +51,9 @@ public class SQLUpdateOperation: SQLiteOperation {
             throw SQLError.MissingTableName
         }
 
-        return try
-            self.database.executeUpdate(
-                self.statementBuilder.buildInsertStatement(
-                    table,
-                    columnNames: values.keys.array,
-                    useNamedParameters: true),
-                parameters: values
-            )
+        let statement = self.statementBuilder.buildInsertStatement(table, columnNames: values.keys.array, useNamedParameters: true)
+        DDLogVerbose("Executing \(statement) with values: \(values)")
+        return try self.database.executeUpdate(statement, parameters: values)
     }
 
     /// executeUpdate(): Updates zero or more rows in a database table
@@ -76,11 +75,14 @@ public class SQLUpdateOperation: SQLiteOperation {
             useNamedParameters: hasNamedParameters
         )
 
-        return hasNamedParameters ?
-            try self.database.executeUpdate(statement, parameters:self.merge(values, second:self.namedSelectionArgs))
-            :
-            try self.database.executeUpdate(statement, parameters:self.selectionArgs
-        )
+        if hasNamedParameters {
+            let mergedValues = self.merge(values, second:self.namedSelectionArgs)
+            DDLogVerbose("Executing \(statement) with named parameters: \(mergedValues)")
+            return try self.database.executeUpdate(statement, parameters:mergedValues)
+        } else {
+            DDLogVerbose("Executing \(statement) with parameters: \(self.selectionArgs)")
+            return try self.database.executeUpdate(statement, parameters:self.selectionArgs)
+        }
     }
 
     internal func merge(first:[String:AnyObject]?, second:[String:AnyObject]?) -> [String:AnyObject]? {

@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import CocoaLumberjackSwift
 
 public class SQLQueryOperation : SQLiteOperation {
     public var groupBy:String?
@@ -27,9 +28,12 @@ public class SQLQueryOperation : SQLiteOperation {
                 having: self.having,
                 sort: self.sort)
         let hasNamedParameters = self.namedSelectionArgs != nil
-        return hasNamedParameters ?
-            try self.database.executeQuery(statement, parameters:self.namedSelectionArgs)
-            :
-            try self.database.executeQuery(statement, parameters:self.selectionArgs)
+        if hasNamedParameters {
+            DDLogVerbose("Executing \(statement) with named parameters: \(self.namedSelectionArgs)")
+            return try self.database.executeQuery(statement, parameters:self.namedSelectionArgs)
+        } else {
+            DDLogVerbose("Executing \(statement) with parameters: \(self.selectionArgs)")
+            return try self.database.executeQuery(statement, parameters:self.selectionArgs)
+        }
     }
 }
