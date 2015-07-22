@@ -14,7 +14,6 @@
 		54C18CC6D934EA649C190E9D /* SQLStatementBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C1871099AA1D09D4EA2674 /* SQLStatementBuilder.swift */; };
 		54C18E4D4F5A97E91F45E0D6 /* SQLiteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18523FB07F45191F37CC9 /* SQLiteOperation.swift */; };
 		A574A6DE1B5F2AB00015478F /* CocoaLumberjackSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A574A6DD1B5F2AB00015478F /* CocoaLumberjackSwift.framework */; };
-		A574A6E01B5F2B350015478F /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A574A6DF1B5F2B350015478F /* CocoaLumberjack.framework */; };
 		A5B158961B5332C9009CDCB1 /* SwiftProtocolsSQLite.h in Headers */ = {isa = PBXBuildFile; fileRef = A5B158951B5332C9009CDCB1 /* SwiftProtocolsSQLite.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5B1589D1B5332C9009CDCB1 /* SwiftProtocolsSQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B158921B5332C9009CDCB1 /* SwiftProtocolsSQLite.framework */; };
 		A5B158A21B5332C9009CDCB1 /* SwiftProtocolsSQLiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B158A11B5332C9009CDCB1 /* SwiftProtocolsSQLiteTests.swift */; };
@@ -40,7 +39,6 @@
 		54C18D4DCF995F84AE4C91CD /* SQLUpdateOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLUpdateOperation.swift; sourceTree = "<group>"; };
 		54C18EBEFD1B7E704B9CD0BC /* SQLiteDatabaseFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SQLiteDatabaseFactory.swift; path = SwiftProtocolsSQLite/database/util/SQLiteDatabaseFactory.swift; sourceTree = SOURCE_ROOT; };
 		A574A6DD1B5F2AB00015478F /* CocoaLumberjackSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjackSwift.framework; path = "Carthage/Checkouts/CocoaLumberjack/build/Debug-iphoneos/CocoaLumberjackSwift.framework"; sourceTree = "<group>"; };
-		A574A6DF1B5F2B350015478F /* CocoaLumberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjack.framework; path = "Carthage/Checkouts/CocoaLumberjack/build/Debug-iphoneos/CocoaLumberjack.framework"; sourceTree = "<group>"; };
 		A5B158921B5332C9009CDCB1 /* SwiftProtocolsSQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftProtocolsSQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5B158951B5332C9009CDCB1 /* SwiftProtocolsSQLite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftProtocolsSQLite.h; sourceTree = "<group>"; };
 		A5B158971B5332C9009CDCB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,7 +54,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A574A6E01B5F2B350015478F /* CocoaLumberjack.framework in Frameworks */,
 				A574A6DE1B5F2AB00015478F /* CocoaLumberjackSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,7 +93,6 @@
 		A5B158881B5332C9009CDCB1 = {
 			isa = PBXGroup;
 			children = (
-				A574A6DF1B5F2B350015478F /* CocoaLumberjack.framework */,
 				A574A6DD1B5F2AB00015478F /* CocoaLumberjackSwift.framework */,
 				A5B158941B5332C9009CDCB1 /* SwiftProtocolsSQLite */,
 				A5B158A01B5332C9009CDCB1 /* SwiftProtocolsSQLiteTests */,
@@ -382,6 +378,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.nimblenoggin.SwiftProtocolsSQLite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s x86_64 i386";
 			};
 			name = Debug;
 		};
@@ -398,6 +395,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.nimblenoggin.SwiftProtocolsSQLite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = "arm64 armv7 armv7s x86_64 i386";
 			};
 			name = Release;
 		};
