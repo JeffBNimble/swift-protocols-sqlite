@@ -161,6 +161,7 @@
 				A5B1588E1B5332C9009CDCB1 /* Frameworks */,
 				A5B1588F1B5332C9009CDCB1 /* Headers */,
 				A5B158901B5332C9009CDCB1 /* Resources */,
+				A574A6E21B607AF50015478F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -240,6 +241,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A574A6E21B607AF50015478F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/CocoaLumberjackSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CocoaLumberjack.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A5B1588D1B5332C9009CDCB1 /* Sources */ = {
