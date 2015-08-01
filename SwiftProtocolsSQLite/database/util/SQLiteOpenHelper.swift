@@ -5,6 +5,7 @@
 
 import Foundation
 import CocoaLumberjackSwift
+import SwiftProtocolsCore
 
 /**
 
@@ -29,10 +30,10 @@ public protocol SQLiteOpenHelper {
     var version: Int { get }
 
     /// init(databaseName:String, version:Int): The initializer for the SQLiteOpenHelper
-    /// - Parameter sqliteDatabaseFactory: A SQLiteDatabaseFactory used to create new SQLiteDatabase instances
+    /// - Parameter sqliteDatabaseFactory: A Factory used to create new SQLiteDatabase instances
     /// - Parameter databaseName: A relative path and database file name (i.e. databases/datadragon.sqlite3)
     /// - Parameter version: The database schema version to use
-    init(databaseFactory: SQLiteDatabaseFactory, databaseName: String?, version: Int)
+    init(databaseFactory: Factory, databaseName: String?, version: Int)
 
     /// close: Close the database
     /// - Throws: A SQLiteDatabaseError if the database cannot be closed
@@ -73,13 +74,13 @@ public protocol SQLiteOpenHelper {
  A base class implementation of the SQLiteOpenHelper protocol
  */
 public class BaseSQLiteOpenHelper : SQLiteOpenHelper {
-    public var databaseName: String?
-    public var version: Int
+    public var databaseName : String?
+    public var version : Int
 
-    private var database:SQLiteDatabase?
-    private var databaseFactory:SQLiteDatabaseFactory
+    private var database : SQLiteDatabase?
+    private var databaseFactory : Factory
 
-    public required init(databaseFactory: SQLiteDatabaseFactory, databaseName: String?, version: Int) {
+    public required init(databaseFactory: Factory, databaseName: String?, version: Int) {
         self.databaseName = databaseName;
         self.version = version;
         self.databaseFactory = databaseFactory
@@ -95,7 +96,7 @@ public class BaseSQLiteOpenHelper : SQLiteOpenHelper {
 
     public func getDatabase() throws -> SQLiteDatabase {
         guard let database = self.database else {
-            self.database = self.databaseFactory.createWithPath(self.asAbsolutePath(self.databaseName))
+            self.database = self.databaseFactory.create(self.asAbsolutePath(self.databaseName))
             
             let db = self.database!
 

@@ -1,1 +1,2 @@
-github "JeffBNimble/CocoaLumberjack" "e6ab0de1d3a16f8e408e24da1a4092d927b177fa"
+github "CocoaLumberjack/CocoaLumberjack" "4dc87df698af9378051f5b5ae915dacb16f75ec5"
+github "JeffBNimble/swift-protocols-core" "c054ca4a715760d80abd29f8c30ea9a91ee72362"
