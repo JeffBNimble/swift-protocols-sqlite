@@ -1,2 +1,2 @@
 github "CocoaLumberjack/CocoaLumberjack" "swift_2.0"
-github "JeffBNimble/swift-protocols-core" "0.0.2"
+github "JeffBNimble/swift-protocols-core" "0.0.3"
