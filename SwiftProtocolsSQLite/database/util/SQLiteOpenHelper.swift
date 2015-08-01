@@ -56,7 +56,7 @@ public protocol SQLiteOpenHelper {
     /// - Parameter database: The SQLiteDatabase whose version is being downgraded
     /// - Parameter fromOldVersion: The current version of the database schema
     /// - Parameter toNewVersion: The new version of the database schema
-    func onDowngrade(database: SQLiteDatabase, fromOldVersion:Int, toNewVersion:Int) throws
+    func onDowngrade(database: SQLiteDatabase, fromOldVersion oldVersion:Int, toNewVersion newVersion:Int) throws
 
     /// onOpen(database:SQLiteDatabase): Called when the specified database has been opened
     /// - Parameter: datbase: The SQLiteDatabase that has been opened
@@ -67,7 +67,7 @@ public protocol SQLiteOpenHelper {
     /// - Parameter database: The SQLiteDatabase whose version is being upgraded
     /// - Parameter fromOldVersion: The current version of the database schema
     /// - Parameter toNewVersion: The new version of the database schema
-    func onUpgrade(database: SQLiteDatabase, fromOldVersion: Int, toNewVersion: Int) throws
+    func onUpgrade(database: SQLiteDatabase, fromOldVersion oldVersion: Int, toNewVersion newVersion: Int) throws
 }
 
 /**
@@ -104,23 +104,23 @@ public class BaseSQLiteOpenHelper : SQLiteOpenHelper {
             try db.startTransaction()
 
             DDLogVerbose("Configuring SQLite database...")
-            self.onConfigure(db)
+            try self.onConfigure(db)
 
             // If the database version is 0, we just created it
             let currentVersion:Int = try self.getCurrentDatabaseVersion()
             if currentVersion == 0 {
                 DDLogVerbose("Creating SQLite database...")
-                self.onCreate(db)
+                try self.onCreate(db)
             }
 
             // Upgrade or downgrade if necessary
             if currentVersion > 0 {
                 if currentVersion < self.version {
                     DDLogVerbose("Upgrading SQLite database from V\(currentVersion) to V\(self.version)...")
-                    self.onUpgrade(db, fromOldVersion:currentVersion, toNewVersion:self.version)
+                    try self.onUpgrade(db, fromOldVersion:currentVersion, toNewVersion:self.version)
                 } else if currentVersion > self.version {
                     DDLogVerbose("Downgrading SQLite database from V\(currentVersion) to V\(self.version)...")
-                    self.onDowngrade(db, fromOldVersion:currentVersion, toNewVersion:self.version)
+                    try self.onDowngrade(db, fromOldVersion:currentVersion, toNewVersion:self.version)
                 }
             }
 
@@ -140,19 +140,19 @@ public class BaseSQLiteOpenHelper : SQLiteOpenHelper {
         return database
     }
 
-    public func onConfigure(database: SQLiteDatabase) {
+    public func onConfigure(database: SQLiteDatabase) throws {
     }
 
-    public func onCreate(database: SQLiteDatabase) {
+    public func onCreate(database: SQLiteDatabase) throws {
     }
 
-    public func onDowngrade(database: SQLiteDatabase, fromOldVersion: Int, toNewVersion: Int) {
+    public func onDowngrade(database: SQLiteDatabase, fromOldVersion oldVersion: Int, toNewVersion newVersion: Int) throws {
     }
 
     public func onOpen(database: SQLiteDatabase) {
     }
 
-    public func onUpgrade(database: SQLiteDatabase, fromOldVersion: Int, toNewVersion: Int) {
+    public func onUpgrade(database: SQLiteDatabase, fromOldVersion oldVersion: Int, toNewVersion newVersion: Int) throws {
     }
 
     private func asAbsolutePath(relativePath:String?) -> String? {
