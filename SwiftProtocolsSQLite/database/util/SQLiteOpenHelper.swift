@@ -39,9 +39,10 @@ public protocol SQLiteOpenHelper {
     /// - Throws: A SQLiteDatabaseError if the database cannot be closed
     func close() throws
 
-    /// getDatabase(): Returns a SQLiteDatabase instance ready to execute SQL commands
-    /// - Returns: A configured, created, upgraded/downgraded and open SQLiteDatabase
-    func getDatabase() throws -> SQLiteDatabase
+    /// getDatabase(): Returns a SQLiteDatabase instance which may or may not be open, created, upgraded/downgraded.
+    ///     It is the responsibility of the app/module to open, create, upgrade/downgrade appropriately
+    /// - Returns: A SQLiteDatabase
+    func getDatabase() -> SQLiteDatabase
 
     /// onConfigure(database:SQLiteDatabase): Called when the specified database has been configured
     /// - Parameter database: The SQLiteDatabase that has been configured
@@ -68,6 +69,10 @@ public protocol SQLiteOpenHelper {
     /// - Parameter fromOldVersion: The current version of the database schema
     /// - Parameter toNewVersion: The new version of the database schema
     func onUpgrade(database: SQLiteDatabase, fromOldVersion oldVersion: Int, toNewVersion newVersion: Int) throws
+    
+    /// prepare(): Prepare a database for use by opening, creating (the schema), upgrading/downgrading
+    /// Throws: A SQLiteDatabaseError if the database cannot be opened, created, upgraded or downgraded
+    func prepare() throws
 }
 
 /**
@@ -79,6 +84,7 @@ public class BaseSQLiteOpenHelper : SQLiteOpenHelper {
 
     private var database : SQLiteDatabase?
     private var databaseFactory : Factory
+    private let databaseLockQueue = dispatch_queue_create("io.nimblenoggin.database_create_lock_queue", nil)
 
     public required init(databaseFactory: Factory, databaseName: String?, version: Int) {
         self.databaseName = databaseName;
@@ -94,52 +100,15 @@ public class BaseSQLiteOpenHelper : SQLiteOpenHelper {
         try db.close()
     }
 
-    public func getDatabase() throws -> SQLiteDatabase {
-        guard let database = self.database else {
+    public func getDatabase() -> SQLiteDatabase {
+        guard let db = self.database else {
             self.database = self.databaseFactory.create(self.asAbsolutePath(self.databaseName))
-            
-            let db = self.database!
-
-            try db.open()
-            try db.startTransaction()
-
-            DDLogVerbose("Configuring SQLite database...")
-            try self.onConfigure(db)
-
-            // If the database version is 0, we just created it
-            let currentVersion:Int = try self.getCurrentDatabaseVersion()
-            if currentVersion == 0 {
-                DDLogVerbose("Creating SQLite database...")
-                try self.onCreate(db)
-            }
-
-            // Upgrade or downgrade if necessary
-            if currentVersion > 0 {
-                if currentVersion < self.version {
-                    DDLogVerbose("Upgrading SQLite database from V\(currentVersion) to V\(self.version)...")
-                    try self.onUpgrade(db, fromOldVersion:currentVersion, toNewVersion:self.version)
-                } else if currentVersion > self.version {
-                    DDLogVerbose("Downgrading SQLite database from V\(currentVersion) to V\(self.version)...")
-                    try self.onDowngrade(db, fromOldVersion:currentVersion, toNewVersion:self.version)
-                }
-            }
-
-            // If the current and new database versions are different, mark the database version with the new version
-            if currentVersion != self.version {
-                try self.setNewDatabaseVersion(self.version)
-            }
-
-            DDLogVerbose("Opening SQLite database...")
-            self.onOpen(db)
-
-            try db.commit()
-
-            return db
+            return self.database!
         }
-
-        return database
+        
+        return db
     }
-
+    
     public func onConfigure(database: SQLiteDatabase) throws {
     }
 
@@ -153,6 +122,62 @@ public class BaseSQLiteOpenHelper : SQLiteOpenHelper {
     }
 
     public func onUpgrade(database: SQLiteDatabase, fromOldVersion oldVersion: Int, toNewVersion newVersion: Int) throws {
+    }
+    
+    public func prepare() throws {
+        let db = self.getDatabase()
+        
+        guard !db.isOpen else {
+            return
+        }
+        
+        // dispatch the creation of the database and open/upgrade/downgrade to a lock queue to prevent
+        // multiple threads from concurrently performing this action
+        dispatch_sync(self.databaseLockQueue, {
+            // Check once again for database already open just in case the caller was blocked on a previous prepare
+            guard !db.isOpen else {
+                return
+            }
+            
+            do {
+                try db.open()
+                try db.startTransaction()
+                    
+                DDLogVerbose("Configuring SQLite database...")
+                try self.onConfigure(db)
+                    
+                // If the database version is 0, we just created it
+                let currentVersion:Int = try self.getCurrentDatabaseVersion()
+                if currentVersion == 0 {
+                    DDLogVerbose("Creating SQLite database...")
+                    try self.onCreate(db)
+                }
+                    
+                // Upgrade or downgrade if necessary
+                if currentVersion > 0 {
+                    if currentVersion < self.version {
+                        DDLogVerbose("Upgrading SQLite database from V\(currentVersion) to V\(self.version)...")
+                        try self.onUpgrade(db, fromOldVersion:currentVersion, toNewVersion:self.version)
+                    } else if currentVersion > self.version {
+                        DDLogVerbose("Downgrading SQLite database from V\(currentVersion) to V\(self.version)...")
+                        try self.onDowngrade(db, fromOldVersion:currentVersion, toNewVersion:self.version)
+                    }
+                }
+                    
+                // If the current and new database versions are different, mark the database version with the new version
+                if currentVersion != self.version {
+                    try self.setNewDatabaseVersion(self.version)
+                }
+                    
+                DDLogVerbose("Opening SQLite database...")
+                self.onOpen(db)
+                    
+                try db.commit()
+            } catch {
+                DDLogError("An error occurred attempting to prepare the database")
+            }
+        })
+        
     }
 
     private func asAbsolutePath(relativePath:String?) -> String? {
