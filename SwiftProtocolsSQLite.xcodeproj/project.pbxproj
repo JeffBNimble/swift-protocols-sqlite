@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		54C186885E57813198BC6001 /* SQLUpdateOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18D4DCF995F84AE4C91CD /* SQLUpdateOperation.swift */; };
 		54C186E50EEF5852754B634E /* SQLiteOpenHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18B4E91F258CF8C5C566C /* SQLiteOpenHelper.swift */; };
-		54C187B3737BDAB1F56F6111 /* SQLiteDatabaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18EBEFD1B7E704B9CD0BC /* SQLiteDatabaseFactory.swift */; };
 		54C1899F25C7BEFB63F6976A /* SQLQueryOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18062CB7EE55D2D3486D1 /* SQLQueryOperation.swift */; };
 		54C18CC6D934EA649C190E9D /* SQLStatementBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C1871099AA1D09D4EA2674 /* SQLStatementBuilder.swift */; };
 		54C18E4D4F5A97E91F45E0D6 /* SQLiteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18523FB07F45191F37CC9 /* SQLiteOperation.swift */; };
@@ -38,7 +37,6 @@
 		54C1871099AA1D09D4EA2674 /* SQLStatementBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLStatementBuilder.swift; sourceTree = "<group>"; };
 		54C18B4E91F258CF8C5C566C /* SQLiteOpenHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SQLiteOpenHelper.swift; path = SwiftProtocolsSQLite/database/util/SQLiteOpenHelper.swift; sourceTree = SOURCE_ROOT; };
 		54C18D4DCF995F84AE4C91CD /* SQLUpdateOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLUpdateOperation.swift; sourceTree = "<group>"; };
-		54C18EBEFD1B7E704B9CD0BC /* SQLiteDatabaseFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SQLiteDatabaseFactory.swift; path = SwiftProtocolsSQLite/database/util/SQLiteDatabaseFactory.swift; sourceTree = SOURCE_ROOT; };
 		A52E80D71B6D1FDA00DE54E7 /* SwiftProtocolsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtocolsCore.framework; path = "Carthage/Checkouts/swift-protocols-core/build/Debug-iphoneos/SwiftProtocolsCore.framework"; sourceTree = "<group>"; };
 		A574A6E31B607EDD0015478F /* CocoaLumberjackSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjackSwift.framework; path = "Carthage/Checkouts/CocoaLumberjack/build/Debug-iphoneos/CocoaLumberjackSwift.framework"; sourceTree = "<group>"; };
 		A5B158921B5332C9009CDCB1 /* SwiftProtocolsSQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftProtocolsSQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,7 +73,6 @@
 		54C184D58AC104847DEDC2A8 /* util */ = {
 			isa = PBXGroup;
 			children = (
-				54C18EBEFD1B7E704B9CD0BC /* SQLiteDatabaseFactory.swift */,
 				54C18B4E91F258CF8C5C566C /* SQLiteOpenHelper.swift */,
 			);
 			name = util;
@@ -254,7 +251,6 @@
 				A5B158B01B533315009CDCB1 /* Cursor.swift in Sources */,
 				54C18CC6D934EA649C190E9D /* SQLStatementBuilder.swift in Sources */,
 				54C186E50EEF5852754B634E /* SQLiteOpenHelper.swift in Sources */,
-				54C187B3737BDAB1F56F6111 /* SQLiteDatabaseFactory.swift in Sources */,
 				54C18E4D4F5A97E91F45E0D6 /* SQLiteOperation.swift in Sources */,
 				54C186885E57813198BC6001 /* SQLUpdateOperation.swift in Sources */,
 				54C1899F25C7BEFB63F6976A /* SQLQueryOperation.swift in Sources */,
