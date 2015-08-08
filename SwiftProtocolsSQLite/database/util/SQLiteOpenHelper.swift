@@ -195,7 +195,7 @@ public class BaseSQLiteOpenHelper : SQLiteOpenHelper {
 
         // Otherwise, return an absolute path in the apps documents folder
         let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0];
-        let fullPath = documentsPath.stringByAppendingPathComponent(path);
+        let fullPath = (documentsPath as NSString).stringByAppendingPathComponent(path);
         DDLogVerbose("Using SQLite database at '\(fullPath)'")
         return fullPath
     }
