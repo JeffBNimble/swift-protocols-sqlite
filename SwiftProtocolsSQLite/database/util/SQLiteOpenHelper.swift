@@ -102,7 +102,7 @@ public class BaseSQLiteOpenHelper : SQLiteOpenHelper {
 
     public func getDatabase() -> SQLiteDatabase {
         guard let db = self.database else {
-            self.database = self.databaseFactory.create(self.asAbsolutePath(self.databaseName))
+            self.database = self.databaseFactory.create(self.asAbsolutePath(self.databaseName)) as SQLiteDatabase
             return self.database!
         }
         

@@ -54,7 +54,7 @@ public protocol SQLStatementBuilder {
 public class SQLiteStatementBuilder:SQLStatementBuilder {
     static private let SELECT:String = "SELECT "
     static private let COUNT:String = "count(*)"
-    static private let DELETE:String = "DELETE "
+    static private let DELETE:String = "DELETE"
     static private let FROM:String = " FROM "
     static private let GROUP_BY:String = " GROUP BY "
     static private let HAVING:String = " HAVING "
@@ -84,7 +84,7 @@ public class SQLiteStatementBuilder:SQLStatementBuilder {
         }
         let valuesString = ",".join(values)
 
-        return "\(SQLiteStatementBuilder.INSERT_INTO) (\(names)) VALUES (\(valuesString))"
+        return "\(SQLiteStatementBuilder.INSERT_INTO)\(tableName) (\(names)) VALUES (\(valuesString))"
     }
 
     public func buildSelectStatement(tableName: String, projection: [String]?, selection: String?, groupBy: String?, having: String?, sort: String?) -> String {
