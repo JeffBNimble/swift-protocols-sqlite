@@ -12,7 +12,7 @@ import CocoaLumberjackSwift
 or deletes in a single database table.
 
 */
-
+@objc
 public class SQLUpdateOperation: SQLiteOperation {
     /// An optional map of values that will be inserted/updated where the key is the column name and
     /// the value is the column value

@@ -19,7 +19,8 @@ ever used for SQL INSERT.
 
 */
 
-public class SQLiteOperation {
+@objc
+public class SQLiteOperation : NSObject {
     /// The optional named arguments that get bound into the named parameters of the selection. If specified, the
     /// number of elements must equal the number of named parameters in the *selection*. The values will get
     /// bound using the keys
@@ -48,6 +49,7 @@ public class SQLiteOperation {
     public init(database: SQLiteDatabase, statementBuilder: SQLStatementBuilder) {
         self.database = database
         self.statementBuilder = statementBuilder
+        super.init()
     }
 }
 

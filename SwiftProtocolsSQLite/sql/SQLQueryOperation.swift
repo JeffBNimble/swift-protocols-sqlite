@@ -6,6 +6,7 @@
 import Foundation
 import CocoaLumberjackSwift
 
+@objc
 public class SQLQueryOperation : SQLiteOperation {
     public var groupBy:String?
     public var having:String?

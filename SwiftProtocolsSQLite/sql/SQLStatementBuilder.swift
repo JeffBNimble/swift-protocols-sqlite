@@ -51,7 +51,8 @@ public protocol SQLStatementBuilder {
     func buildUpdateStatement(tableName:String, updatingColumnNames:[String], selection:String?, useNamedParameters:Bool) -> String
 }
 
-public class SQLiteStatementBuilder:SQLStatementBuilder {
+@objc
+public class SQLiteStatementBuilder : NSObject, SQLStatementBuilder {
     static private let SELECT:String = "SELECT "
     static private let COUNT:String = "count(*)"
     static private let DELETE:String = "DELETE"
@@ -65,7 +66,9 @@ public class SQLiteStatementBuilder:SQLStatementBuilder {
     static private let UPDATE:String = "UPDATE "
     static private let WHERE:String = " WHERE "
     
-    public required init() {}
+    public required override init() {
+        super.init()
+    }
 
     public func buildDeleteStatement(tableName: String, selection: String?) -> String {
         var sqlString = "\(SQLiteStatementBuilder.DELETE)\(SQLiteStatementBuilder.FROM)\(tableName)"
