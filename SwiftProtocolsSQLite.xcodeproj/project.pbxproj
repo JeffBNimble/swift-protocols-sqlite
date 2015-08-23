@@ -13,13 +13,13 @@
 		54C18CC6D934EA649C190E9D /* SQLStatementBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C1871099AA1D09D4EA2674 /* SQLStatementBuilder.swift */; };
 		54C18E4D4F5A97E91F45E0D6 /* SQLiteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18523FB07F45191F37CC9 /* SQLiteOperation.swift */; };
 		A52E80D81B6D1FDA00DE54E7 /* SwiftProtocolsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52E80D71B6D1FDA00DE54E7 /* SwiftProtocolsCore.framework */; };
-		A574A6E41B607EDD0015478F /* CocoaLumberjackSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A574A6E31B607EDD0015478F /* CocoaLumberjackSwift.framework */; };
 		A59DE1611B82B9ED004EF8DD /* DatabaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59DE1601B82B9EC004EF8DD /* DatabaseFactory.swift */; };
 		A5B158961B5332C9009CDCB1 /* SwiftProtocolsSQLite.h in Headers */ = {isa = PBXBuildFile; fileRef = A5B158951B5332C9009CDCB1 /* SwiftProtocolsSQLite.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5B1589D1B5332C9009CDCB1 /* SwiftProtocolsSQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B158921B5332C9009CDCB1 /* SwiftProtocolsSQLite.framework */; };
 		A5B158A21B5332C9009CDCB1 /* SwiftProtocolsSQLiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B158A11B5332C9009CDCB1 /* SwiftProtocolsSQLiteTests.swift */; };
 		A5B158B01B533315009CDCB1 /* Cursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B158AD1B533315009CDCB1 /* Cursor.swift */; };
 		A5B158B11B533315009CDCB1 /* SQLiteDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B158AE1B533315009CDCB1 /* SQLiteDatabase.swift */; };
+		A5C5A58F1B8A6E46001732E3 /* CocoaLumberjackSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5C5A58E1B8A6E46001732E3 /* CocoaLumberjackSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +49,7 @@
 		A5B158A31B5332C9009CDCB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5B158AD1B533315009CDCB1 /* Cursor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cursor.swift; sourceTree = "<group>"; };
 		A5B158AE1B533315009CDCB1 /* SQLiteDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDatabase.swift; sourceTree = "<group>"; };
+		A5C5A58E1B8A6E46001732E3 /* CocoaLumberjackSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjackSwift.framework; path = Carthage/Checkouts/CocoaLumberjack/build/Debug/CocoaLumberjackSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5C5A58F1B8A6E46001732E3 /* CocoaLumberjackSwift.framework in Frameworks */,
 				A52E80D81B6D1FDA00DE54E7 /* SwiftProtocolsCore.framework in Frameworks */,
-				A574A6E41B607EDD0015478F /* CocoaLumberjackSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +96,7 @@
 		A5B158881B5332C9009CDCB1 = {
 			isa = PBXGroup;
 			children = (
+				A5C5A58E1B8A6E46001732E3 /* CocoaLumberjackSwift.framework */,
 				A52E80D71B6D1FDA00DE54E7 /* SwiftProtocolsCore.framework */,
 				A574A6E31B607EDD0015478F /* CocoaLumberjackSwift.framework */,
 				A5B158941B5332C9009CDCB1 /* SwiftProtocolsSQLite */,
@@ -379,6 +381,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
 					"$(PROJECT_DIR)/Carthage/Checkouts/swift-protocols-core/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Carthage/Checkouts/CocoaLumberjack/build/Debug",
 				);
 				INFOPLIST_FILE = SwiftProtocolsSQLite/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -402,6 +405,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
 					"$(PROJECT_DIR)/Carthage/Checkouts/swift-protocols-core/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Carthage/Checkouts/CocoaLumberjack/build/Debug",
 				);
 				INFOPLIST_FILE = SwiftProtocolsSQLite/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
