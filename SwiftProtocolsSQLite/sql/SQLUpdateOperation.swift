@@ -51,7 +51,7 @@ public class SQLUpdateOperation: SQLiteOperation {
             throw SQLError.MissingTableName
         }
 
-        let statement = self.statementBuilder.buildInsertStatement(table, columnNames: values.keys.array, useNamedParameters: true)
+        let statement = self.statementBuilder.buildInsertStatement(table, columnNames: Array(values.keys), useNamedParameters: true)
         DDLogVerbose("Executing \(statement) with values: \(values)")
         return try self.database.executeUpdate(statement, parameters: values)
     }
@@ -70,7 +70,7 @@ public class SQLUpdateOperation: SQLiteOperation {
         let hasNamedParameters = self.namedSelectionArgs != nil
         let statement = self.statementBuilder.buildUpdateStatement(
             table,
-            updatingColumnNames: values.keys.array,
+            updatingColumnNames: Array(values.keys),
             selection: self.selection,
             useNamedParameters: hasNamedParameters
         )

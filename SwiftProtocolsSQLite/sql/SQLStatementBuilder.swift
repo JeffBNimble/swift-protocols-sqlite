@@ -81,11 +81,11 @@ public class SQLiteStatementBuilder : NSObject, SQLStatementBuilder {
     }
 
     public func buildInsertStatement(tableName: String, columnNames: [String], useNamedParameters: Bool = true) -> String {
-        let names = ",".join(columnNames)
+        let names = columnNames.joinWithSeparator(", ")
         let values = columnNames.map() {columnName in
             useNamedParameters ? ":\(columnName)" : "?"
         }
-        let valuesString = ",".join(values)
+        let valuesString = values.joinWithSeparator(", ")
 
         return "\(SQLiteStatementBuilder.INSERT_INTO)\(tableName) (\(names)) VALUES (\(valuesString))"
     }
@@ -94,7 +94,7 @@ public class SQLiteStatementBuilder : NSObject, SQLStatementBuilder {
 
         let projectionColumns = projection ?? [SQLiteStatementBuilder.PROJECTION_ALL]
 
-        let projectionString = ",".join(projectionColumns)
+        let projectionString = projectionColumns.joinWithSeparator(", ")
 
         var sqlString = "\(SQLiteStatementBuilder.SELECT)\(projectionString)\(SQLiteStatementBuilder.FROM)\(tableName)"
 
@@ -122,7 +122,7 @@ public class SQLiteStatementBuilder : NSObject, SQLStatementBuilder {
             useNamedParameters ? "\(columnName) = :\(columnName)" : "\(columnName) = ?"
         }
 
-        let setClause = ",".join(columnNames)
+        let setClause = columnNames.joinWithSeparator(", ")
         var sqlString = "\(SQLiteStatementBuilder.UPDATE)\(tableName)\(SQLiteStatementBuilder.SET)\(setClause)"
 
         if let selection = selection  {
