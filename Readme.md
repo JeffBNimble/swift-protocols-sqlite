@@ -39,7 +39,9 @@ There are a handful of optional utilities that you can use to make SQLite develo
 [SQLUpdateOperation](https://github.com/JeffBNimble/swift-protocols-sqlite/blob/master/SwiftProtocolsSQLite/sql/SQLUpdateOperation.swift) is a utility class for easily executing SQL update statements (i.e. INSERT, UPDATE, DELETE). The functions are declared as throwing and will throw any resultant SQL errors from the underlying database implementation. A SQLUpdateOperation is initialized with a SQLiteDatabase and a SQLStatementBuilder). You simply provide information about which database table you wish to update, any content values used to update the data and any selection criteria for selecting which rows to update (SQL UPDATE and DELETE only) and call execute.
 
 **Insert example**
-```do {
+
+```swift
+do {
     let operation = SQLUpdateOperation(database: someSQLiteDatabase, statementBuilder: SQLiteStatementBuilder())
     operation.tableName = "employee"
     operation.contentValues : [String : AnyObject] = ["id" : 123, "first_name" : "Jeff", "last_name" : "Roberts", "status" : "A"]
@@ -48,10 +50,14 @@ There are a handful of optional utilities that you can use to make SQLite develo
   // Do something with the error
 }```
 
-The code above executes ```INSERT INTO employee (id, first_name, "last_name, "status") VALUES (:id, :first_name, :last_name, :status)``` using the named parameter values of 123, "Jeff", "Roberts" and "A".
+The code above executes ```
+INSERT INTO employee (id, first_name, "last_name, "status") VALUES (:id, :first_name, :last_name, :status)```
+using the named parameter values of 123, "Jeff", "Roberts" and "A".
 
 **Update example**
-```do {
+
+```swift
+do {
   let operation = SQLUpdateOperation(database: someSQLiteDatabase, statementBuilder: SQLiteStatementBuilder())
   operation.tableName = "employee"
   operation.selection = "id = :id"
@@ -65,7 +71,9 @@ The code above executes ```INSERT INTO employee (id, first_name, "last_name, "st
 The code above executes ```UPDATE employee SET status = :status WHERE id = :id``` using "B" as the updated content value and 123 as the id used in the WHERE clause.
 
 **Delete example**
-```do {
+
+```swift
+do {
   let operation = SQLUpdateOperation(database: someSQLiteDatabase, statementBuilder: SQLiteStatementBuilder())
   operation.tableName = "employee"
   operation.selection = "id = :id"
@@ -75,13 +83,18 @@ The code above executes ```UPDATE employee SET status = :status WHERE id = :id``
   // Do something with the error
 }```
 
-The code above executes ```DELETE FROM employee WHERE id = :id``` using 123 as the parameter
+The code above executes
+```sql
+DELETE FROM employee WHERE id = :id
+```
+using 123 as the parameter
 
 ## SQLQueryOperation
 [SQLQueryOperation](https://github.com/JeffBNimble/swift-protocols-sqlite/blob/master/SwiftProtocolsSQLite/sql/SQLQueryOperation.swift) is a utility class for executing SQL queries. The function is throwing and returns a Cursor in response.
 
 ** Query example #1**
-```do {
+```swift
+do {
   let operation = SQLUpdateOperation(database: someSQLiteDatabase, statementBuilder: SQLiteStatementBuilder())
   operation.tableName = "employee"
   operation.projection = ["id", "last_name", "first_name"]
@@ -91,10 +104,14 @@ The code above executes ```DELETE FROM employee WHERE id = :id``` using 123 as t
   // Do something with the error
 }```
 
-The code above executes ```SELECT id, last_name, first_name FROM employee ORDER BY last_name ASC
+The code above executes
+```sql
+SELECT id, last_name, first_name FROM employee ORDER BY last_name ASC
+```
 
 ** Query example #1**
-```do {
+```swift
+do {
   let operation = SQLUpdateOperation(database: someSQLiteDatabase, statementBuilder: SQLiteStatementBuilder())
   operation.tableName = "employee"
   operation.projection = ["count(*) as row_count"]
@@ -105,7 +122,11 @@ The code above executes ```SELECT id, last_name, first_name FROM employee ORDER 
   // Do something with the error
 }```
 
-The code above executes ```SELECT count(*) as row_count FROM employee WHERE status = :status``` using "A" as the selection parameter.
+The code above executes
+```sql
+SELECT count(*) as row_count FROM employee WHERE status = :status
+```
+using "A" as the selection parameter.
 
 # Installation
 Use [Carthage](https://github.com/Carthage/Carthage). This framework requires the use of Swift 2 and XCode 7 or greater.
