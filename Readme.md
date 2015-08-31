@@ -48,10 +48,13 @@ do {
     let rowId = try operation.executeInsert()
 } catch {
   // Do something with the error
-}```
+}
+```
 
-The code above executes ```
-INSERT INTO employee (id, first_name, "last_name, "status") VALUES (:id, :first_name, :last_name, :status)```
+The code above executes
+```
+INSERT INTO employee (id, first_name, "last_name, "status") VALUES (:id, :first_name, :last_name, :status)
+```
 using the named parameter values of 123, "Jeff", "Roberts" and "A".
 
 **Update example**
@@ -66,7 +69,8 @@ do {
   let updateCount = try operation.executeUpdate()
 } catch {
   // Do something with the error
-}```
+}
+```
 
 The code above executes ```UPDATE employee SET status = :status WHERE id = :id``` using "B" as the updated content value and 123 as the id used in the WHERE clause.
 
@@ -81,7 +85,8 @@ do {
   let deleteCount = try operation.executeDelete()
 } catch {
   // Do something with the error
-}```
+}
+```
 
 The code above executes
 ```sql
@@ -102,7 +107,8 @@ do {
   let cursor = try operation.executeQuery()
 } catch {
   // Do something with the error
-}```
+}
+```
 
 The code above executes
 ```sql
@@ -120,7 +126,8 @@ do {
   let cursor = try operation.executeQuery()
 } catch {
   // Do something with the error
-}```
+}
+```
 
 The code above executes
 ```sql
