@@ -72,7 +72,11 @@ do {
 }
 ```
 
-The code above executes ```UPDATE employee SET status = :status WHERE id = :id``` using "B" as the updated content value and 123 as the id used in the WHERE clause.
+The code above executes
+```
+UPDATE employee SET status = :status WHERE id = :id
+```
+using "B" as the updated content value and 123 as the id used in the WHERE clause.
 
 **Delete example**
 
@@ -95,9 +99,9 @@ DELETE FROM employee WHERE id = :id
 using 123 as the parameter
 
 ## SQLQueryOperation
-[SQLQueryOperation](https://github.com/JeffBNimble/swift-protocols-sqlite/blob/master/SwiftProtocolsSQLite/sql/SQLQueryOperation.swift) is a utility class for executing SQL queries. The function is throwing and returns a Cursor in response.
+[SQLQueryOperation](https://github.com/JeffBNimble/swift-protocols-sqlite/blob/master/SwiftProtocolsSQLite/sql/SQLQueryOperation.swift) is a utility class for executing SQL queries. The function is throwing and returns a Cursor in response. You can execute simple queries and arbitrarily complex queries using SQL joins, group by and having clauses as well.
 
-** Query example #1**
+**Query example #1**
 ```swift
 do {
   let operation = SQLUpdateOperation(database: someSQLiteDatabase, statementBuilder: SQLiteStatementBuilder())
@@ -115,7 +119,7 @@ The code above executes
 SELECT id, last_name, first_name FROM employee ORDER BY last_name ASC
 ```
 
-** Query example #1**
+**Query example #1**
 ```swift
 do {
   let operation = SQLUpdateOperation(database: someSQLiteDatabase, statementBuilder: SQLiteStatementBuilder())
