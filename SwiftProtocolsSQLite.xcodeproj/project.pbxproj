@@ -9,10 +9,19 @@
 /* Begin PBXBuildFile section */
 		54C186885E57813198BC6001 /* SQLUpdateOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18D4DCF995F84AE4C91CD /* SQLUpdateOperation.swift */; };
 		54C186E50EEF5852754B634E /* SQLiteOpenHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18B4E91F258CF8C5C566C /* SQLiteOpenHelper.swift */; };
+		54C1893A649A2CAA08ACBAB8 /* SQLStatementBuilderSpecPending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18AEE345BF89B10D4921E /* SQLStatementBuilderSpecPending.swift */; };
 		54C1899F25C7BEFB63F6976A /* SQLQueryOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18062CB7EE55D2D3486D1 /* SQLQueryOperation.swift */; };
 		54C18CC6D934EA649C190E9D /* SQLStatementBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C1871099AA1D09D4EA2674 /* SQLStatementBuilder.swift */; };
 		54C18E4D4F5A97E91F45E0D6 /* SQLiteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18523FB07F45191F37CC9 /* SQLiteOperation.swift */; };
 		A52E80D81B6D1FDA00DE54E7 /* SwiftProtocolsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52E80D71B6D1FDA00DE54E7 /* SwiftProtocolsCore.framework */; };
+		A55765C01C645449003BA358 /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A55765BF1C645449003BA358 /* CocoaLumberjack.framework */; };
+		A55765CE1C6455A6003BA358 /* CocoaLumberjack.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A55765C91C6455A6003BA358 /* CocoaLumberjack.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A55765CF1C6455A6003BA358 /* CocoaLumberjackSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A55765CA1C6455A6003BA358 /* CocoaLumberjackSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A55765D01C6455A6003BA358 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A55765CB1C6455A6003BA358 /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A55765D11C6455A6003BA358 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A55765CC1C6455A6003BA358 /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A55765D21C6455A6003BA358 /* SwiftProtocolsCore.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A55765CD1C6455A6003BA358 /* SwiftProtocolsCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A55765D31C64CBE4003BA358 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A55765CB1C6455A6003BA358 /* Nimble.framework */; };
+		A55765D41C64CBE4003BA358 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A55765CC1C6455A6003BA358 /* Quick.framework */; };
 		A59DE1611B82B9ED004EF8DD /* DatabaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59DE1601B82B9EC004EF8DD /* DatabaseFactory.swift */; };
 		A5B158961B5332C9009CDCB1 /* SwiftProtocolsSQLite.h in Headers */ = {isa = PBXBuildFile; fileRef = A5B158951B5332C9009CDCB1 /* SwiftProtocolsSQLite.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5B1589D1B5332C9009CDCB1 /* SwiftProtocolsSQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B158921B5332C9009CDCB1 /* SwiftProtocolsSQLite.framework */; };
@@ -32,13 +41,38 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A55765C81C645572003BA358 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A55765CE1C6455A6003BA358 /* CocoaLumberjack.framework in CopyFiles */,
+				A55765CF1C6455A6003BA358 /* CocoaLumberjackSwift.framework in CopyFiles */,
+				A55765D01C6455A6003BA358 /* Nimble.framework in CopyFiles */,
+				A55765D11C6455A6003BA358 /* Quick.framework in CopyFiles */,
+				A55765D21C6455A6003BA358 /* SwiftProtocolsCore.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		54C18062CB7EE55D2D3486D1 /* SQLQueryOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLQueryOperation.swift; sourceTree = "<group>"; };
 		54C18523FB07F45191F37CC9 /* SQLiteOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteOperation.swift; sourceTree = "<group>"; };
 		54C1871099AA1D09D4EA2674 /* SQLStatementBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLStatementBuilder.swift; sourceTree = "<group>"; };
+		54C18AEE345BF89B10D4921E /* SQLStatementBuilderSpecPending.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLStatementBuilderSpecPending.swift; sourceTree = "<group>"; };
 		54C18B4E91F258CF8C5C566C /* SQLiteOpenHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SQLiteOpenHelper.swift; path = SwiftProtocolsSQLite/database/util/SQLiteOpenHelper.swift; sourceTree = SOURCE_ROOT; };
 		54C18D4DCF995F84AE4C91CD /* SQLUpdateOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLUpdateOperation.swift; sourceTree = "<group>"; };
 		A52E80D71B6D1FDA00DE54E7 /* SwiftProtocolsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtocolsCore.framework; path = "Carthage/Checkouts/swift-protocols-core/build/Debug-iphoneos/SwiftProtocolsCore.framework"; sourceTree = "<group>"; };
+		A55765B61C644B5A003BA358 /* CocoaLumberjackSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjackSwift.framework; path = "Carthage/Checkouts/CocoaLumberjack/build/Debug-iphoneos/CocoaLumberjackSwift.framework"; sourceTree = "<group>"; };
+		A55765BF1C645449003BA358 /* CocoaLumberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjack.framework; path = "Carthage/Checkouts/CocoaLumberjack/build/Debug-iphoneos/CocoaLumberjack.framework"; sourceTree = "<group>"; };
+		A55765C91C6455A6003BA358 /* CocoaLumberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjack.framework; path = Carthage/Build/iOS/CocoaLumberjack.framework; sourceTree = "<group>"; };
+		A55765CA1C6455A6003BA358 /* CocoaLumberjackSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjackSwift.framework; path = Carthage/Build/iOS/CocoaLumberjackSwift.framework; sourceTree = "<group>"; };
+		A55765CB1C6455A6003BA358 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		A55765CC1C6455A6003BA358 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		A55765CD1C6455A6003BA358 /* SwiftProtocolsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtocolsCore.framework; path = Carthage/Build/iOS/SwiftProtocolsCore.framework; sourceTree = "<group>"; };
 		A574A6E31B607EDD0015478F /* CocoaLumberjackSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjackSwift.framework; path = "Carthage/Checkouts/CocoaLumberjack/build/Debug-iphoneos/CocoaLumberjackSwift.framework"; sourceTree = "<group>"; };
 		A59DE1601B82B9EC004EF8DD /* DatabaseFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseFactory.swift; sourceTree = "<group>"; };
 		A5B158921B5332C9009CDCB1 /* SwiftProtocolsSQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftProtocolsSQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A55765C01C645449003BA358 /* CocoaLumberjack.framework in Frameworks */,
 				A5C5A58F1B8A6E46001732E3 /* CocoaLumberjackSwift.framework in Frameworks */,
 				A52E80D81B6D1FDA00DE54E7 /* SwiftProtocolsCore.framework in Frameworks */,
 			);
@@ -66,6 +101,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A55765D31C64CBE4003BA358 /* Nimble.framework in Frameworks */,
+				A55765D41C64CBE4003BA358 /* Quick.framework in Frameworks */,
 				A5B1589D1B5332C9009CDCB1 /* SwiftProtocolsSQLite.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,6 +110,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		54C181CA14E4FCA4C7054A16 /* sql */ = {
+			isa = PBXGroup;
+			children = (
+				54C18AEE345BF89B10D4921E /* SQLStatementBuilderSpecPending.swift */,
+			);
+			path = sql;
+			sourceTree = "<group>";
+		};
 		54C184D58AC104847DEDC2A8 /* util */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +141,13 @@
 		A5B158881B5332C9009CDCB1 = {
 			isa = PBXGroup;
 			children = (
+				A55765C91C6455A6003BA358 /* CocoaLumberjack.framework */,
+				A55765CA1C6455A6003BA358 /* CocoaLumberjackSwift.framework */,
+				A55765CB1C6455A6003BA358 /* Nimble.framework */,
+				A55765CC1C6455A6003BA358 /* Quick.framework */,
+				A55765CD1C6455A6003BA358 /* SwiftProtocolsCore.framework */,
+				A55765BF1C645449003BA358 /* CocoaLumberjack.framework */,
+				A55765B61C644B5A003BA358 /* CocoaLumberjackSwift.framework */,
 				A5C5A58E1B8A6E46001732E3 /* CocoaLumberjackSwift.framework */,
 				A52E80D71B6D1FDA00DE54E7 /* SwiftProtocolsCore.framework */,
 				A574A6E31B607EDD0015478F /* CocoaLumberjackSwift.framework */,
@@ -130,6 +182,7 @@
 			children = (
 				A5B158A11B5332C9009CDCB1 /* SwiftProtocolsSQLiteTests.swift */,
 				A5B158A31B5332C9009CDCB1 /* Info.plist */,
+				54C181CA14E4FCA4C7054A16 /* sql */,
 			);
 			path = SwiftProtocolsSQLiteTests;
 			sourceTree = "<group>";
@@ -184,6 +237,7 @@
 				A5B158981B5332C9009CDCB1 /* Sources */,
 				A5B158991B5332C9009CDCB1 /* Frameworks */,
 				A5B1589A1B5332C9009CDCB1 /* Resources */,
+				A55765C81C645572003BA358 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -268,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5B158A21B5332C9009CDCB1 /* SwiftProtocolsSQLiteTests.swift in Sources */,
+				54C1893A649A2CAA08ACBAB8 /* SQLStatementBuilderSpecPending.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +358,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -351,6 +407,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -378,10 +435,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
 					"$(PROJECT_DIR)/Carthage/Checkouts/swift-protocols-core/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/Carthage/Checkouts/CocoaLumberjack/build/Debug",
+					"$(PROJECT_DIR)/Carthage/Checkouts/CocoaLumberjack/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = SwiftProtocolsSQLite/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -402,10 +461,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/**",
 					"$(PROJECT_DIR)/Carthage/Checkouts/swift-protocols-core/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/Carthage/Checkouts/CocoaLumberjack/build/Debug",
+					"$(PROJECT_DIR)/Carthage/Checkouts/CocoaLumberjack/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = SwiftProtocolsSQLite/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -422,8 +483,14 @@
 		A5B158AA1B5332C9009CDCB1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS/**",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SwiftProtocolsSQLiteTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR}/Carthage/Build/iOS/CocoaLumberjack.framework";
 				PRODUCT_BUNDLE_IDENTIFIER = io.nimblenoggin.SwiftProtocolsSQLiteTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -432,8 +499,14 @@
 		A5B158AB1B5332C9009CDCB1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS/**",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SwiftProtocolsSQLiteTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(PROJECT_DIR}/Carthage/Build/iOS/CocoaLumberjack.framework";
 				PRODUCT_BUNDLE_IDENTIFIER = io.nimblenoggin.SwiftProtocolsSQLiteTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
