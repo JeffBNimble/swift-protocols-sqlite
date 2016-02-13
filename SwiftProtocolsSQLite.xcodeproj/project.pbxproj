@@ -7,11 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54C18426F62F752D4C4DED62 /* SQLStatementBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C189D1ACB252C5D0EA5A23 /* SQLStatementBuilderSpec.swift */; };
+		54C184E364184D92A6728B3E /* MockSQLiteDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18D50365EC660B965D6C6 /* MockSQLiteDatabase.swift */; };
+		54C1855FBC533763ADFA59BE /* SQLQueryOperationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18D94B359194F6DD4E9CD /* SQLQueryOperationSpec.swift */; };
 		54C186885E57813198BC6001 /* SQLUpdateOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18D4DCF995F84AE4C91CD /* SQLUpdateOperation.swift */; };
 		54C186E50EEF5852754B634E /* SQLiteOpenHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18B4E91F258CF8C5C566C /* SQLiteOpenHelper.swift */; };
-		54C1893A649A2CAA08ACBAB8 /* SQLStatementBuilderSpecPending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18AEE345BF89B10D4921E /* SQLStatementBuilderSpecPending.swift */; };
+		54C1873AE4B479FDA05A2597 /* MockCursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18C28831FA0F8262C227A /* MockCursor.swift */; };
+		54C1893A649A2CAA08ACBAB8 /* SQLStatementBuilderPendingSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18AEE345BF89B10D4921E /* SQLStatementBuilderPendingSpec.swift */; };
 		54C1899F25C7BEFB63F6976A /* SQLQueryOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18062CB7EE55D2D3486D1 /* SQLQueryOperation.swift */; };
+		54C18AB29115D0CF38645434 /* SQLQueryOperationPendingSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C184C9B71D7AC05BBC32CB /* SQLQueryOperationPendingSpec.swift */; };
 		54C18CC6D934EA649C190E9D /* SQLStatementBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C1871099AA1D09D4EA2674 /* SQLStatementBuilder.swift */; };
+		54C18DD77E786FD00137C0FF /* NimbleNogginConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18E7976CD1A54C394FDAA /* NimbleNogginConfiguration.swift */; };
 		54C18E4D4F5A97E91F45E0D6 /* SQLiteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18523FB07F45191F37CC9 /* SQLiteOperation.swift */; };
 		A52E80D81B6D1FDA00DE54E7 /* SwiftProtocolsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52E80D71B6D1FDA00DE54E7 /* SwiftProtocolsCore.framework */; };
 		A55765C01C645449003BA358 /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A55765BF1C645449003BA358 /* CocoaLumberjack.framework */; };
@@ -60,11 +66,17 @@
 
 /* Begin PBXFileReference section */
 		54C18062CB7EE55D2D3486D1 /* SQLQueryOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLQueryOperation.swift; sourceTree = "<group>"; };
+		54C184C9B71D7AC05BBC32CB /* SQLQueryOperationPendingSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLQueryOperationPendingSpec.swift; sourceTree = "<group>"; };
 		54C18523FB07F45191F37CC9 /* SQLiteOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteOperation.swift; sourceTree = "<group>"; };
 		54C1871099AA1D09D4EA2674 /* SQLStatementBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLStatementBuilder.swift; sourceTree = "<group>"; };
-		54C18AEE345BF89B10D4921E /* SQLStatementBuilderSpecPending.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLStatementBuilderSpecPending.swift; sourceTree = "<group>"; };
+		54C189D1ACB252C5D0EA5A23 /* SQLStatementBuilderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLStatementBuilderSpec.swift; sourceTree = "<group>"; };
+		54C18AEE345BF89B10D4921E /* SQLStatementBuilderPendingSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLStatementBuilderPendingSpec.swift; sourceTree = "<group>"; };
 		54C18B4E91F258CF8C5C566C /* SQLiteOpenHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SQLiteOpenHelper.swift; path = SwiftProtocolsSQLite/database/util/SQLiteOpenHelper.swift; sourceTree = SOURCE_ROOT; };
+		54C18C28831FA0F8262C227A /* MockCursor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockCursor.swift; sourceTree = "<group>"; };
 		54C18D4DCF995F84AE4C91CD /* SQLUpdateOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLUpdateOperation.swift; sourceTree = "<group>"; };
+		54C18D50365EC660B965D6C6 /* MockSQLiteDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSQLiteDatabase.swift; sourceTree = "<group>"; };
+		54C18D94B359194F6DD4E9CD /* SQLQueryOperationSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLQueryOperationSpec.swift; sourceTree = "<group>"; };
+		54C18E7976CD1A54C394FDAA /* NimbleNogginConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NimbleNogginConfiguration.swift; sourceTree = "<group>"; };
 		A52E80D71B6D1FDA00DE54E7 /* SwiftProtocolsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtocolsCore.framework; path = "Carthage/Checkouts/swift-protocols-core/build/Debug-iphoneos/SwiftProtocolsCore.framework"; sourceTree = "<group>"; };
 		A55765B61C644B5A003BA358 /* CocoaLumberjackSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjackSwift.framework; path = "Carthage/Checkouts/CocoaLumberjack/build/Debug-iphoneos/CocoaLumberjackSwift.framework"; sourceTree = "<group>"; };
 		A55765BF1C645449003BA358 /* CocoaLumberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjack.framework; path = "Carthage/Checkouts/CocoaLumberjack/build/Debug-iphoneos/CocoaLumberjack.framework"; sourceTree = "<group>"; };
@@ -113,9 +125,21 @@
 		54C181CA14E4FCA4C7054A16 /* sql */ = {
 			isa = PBXGroup;
 			children = (
-				54C18AEE345BF89B10D4921E /* SQLStatementBuilderSpecPending.swift */,
+				54C18AEE345BF89B10D4921E /* SQLStatementBuilderPendingSpec.swift */,
+				54C189D1ACB252C5D0EA5A23 /* SQLStatementBuilderSpec.swift */,
+				54C184C9B71D7AC05BBC32CB /* SQLQueryOperationPendingSpec.swift */,
+				54C18D94B359194F6DD4E9CD /* SQLQueryOperationSpec.swift */,
 			);
 			path = sql;
+			sourceTree = "<group>";
+		};
+		54C18375F2EB96875C8AEC50 /* helper */ = {
+			isa = PBXGroup;
+			children = (
+				54C18D50365EC660B965D6C6 /* MockSQLiteDatabase.swift */,
+				54C18C28831FA0F8262C227A /* MockCursor.swift */,
+			);
+			path = helper;
 			sourceTree = "<group>";
 		};
 		54C184D58AC104847DEDC2A8 /* util */ = {
@@ -136,6 +160,14 @@
 				54C18D4DCF995F84AE4C91CD /* SQLUpdateOperation.swift */,
 			);
 			path = sql;
+			sourceTree = "<group>";
+		};
+		54C1894EFC33A96340958FCA /* util */ = {
+			isa = PBXGroup;
+			children = (
+				54C18E7976CD1A54C394FDAA /* NimbleNogginConfiguration.swift */,
+			);
+			path = util;
 			sourceTree = "<group>";
 		};
 		A5B158881B5332C9009CDCB1 = {
@@ -183,6 +215,8 @@
 				A5B158A11B5332C9009CDCB1 /* SwiftProtocolsSQLiteTests.swift */,
 				A5B158A31B5332C9009CDCB1 /* Info.plist */,
 				54C181CA14E4FCA4C7054A16 /* sql */,
+				54C18375F2EB96875C8AEC50 /* helper */,
+				54C1894EFC33A96340958FCA /* util */,
 			);
 			path = SwiftProtocolsSQLiteTests;
 			sourceTree = "<group>";
@@ -322,7 +356,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5B158A21B5332C9009CDCB1 /* SwiftProtocolsSQLiteTests.swift in Sources */,
-				54C1893A649A2CAA08ACBAB8 /* SQLStatementBuilderSpecPending.swift in Sources */,
+				54C1893A649A2CAA08ACBAB8 /* SQLStatementBuilderPendingSpec.swift in Sources */,
+				54C18426F62F752D4C4DED62 /* SQLStatementBuilderSpec.swift in Sources */,
+				54C18AB29115D0CF38645434 /* SQLQueryOperationPendingSpec.swift in Sources */,
+				54C1855FBC533763ADFA59BE /* SQLQueryOperationSpec.swift in Sources */,
+				54C184E364184D92A6728B3E /* MockSQLiteDatabase.swift in Sources */,
+				54C1873AE4B479FDA05A2597 /* MockCursor.swift in Sources */,
+				54C18DD77E786FD00137C0FF /* NimbleNogginConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

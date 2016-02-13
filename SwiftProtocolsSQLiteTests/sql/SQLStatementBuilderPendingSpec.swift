@@ -7,14 +7,9 @@
 import Quick
 import Nimble
 
-class SQLStatementBuilderSpecPending : QuickSpec {
+class SQLStatementBuilderPendingSpec : QuickSpec {
     override func spec() {
         describe("With a SQLLiteStatementBuilder") {
-            var statementBuilder : SQLStatementBuilder!
-
-            beforeEach {
-                statementBuilder = SQLiteStatementBuilder()
-            }
 
             // SQL INSERT
             context("when building an INSERT statement") {
@@ -35,8 +30,17 @@ class SQLStatementBuilderSpecPending : QuickSpec {
             // SQL DELETE
             context("when building a DELETE statement") {
 
-                pending("it should generate a valid SQL DELETE statement") {}
+                context("without a selection specified") {
 
+                    pending("it should generate a valid SQL DELETE statement without a WHERE clause") {}
+
+                }
+
+                context("with a selection specified") {
+
+                    pending("it should generate a valid SQL DELETE statement with a WHERE clause") {}
+
+                }
             }
 
             // SQL UPDATE
