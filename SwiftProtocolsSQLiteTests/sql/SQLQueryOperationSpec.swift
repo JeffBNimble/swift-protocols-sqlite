@@ -24,7 +24,7 @@ class SQLQueryOperationSpec : QuickSpec {
             context("when executing a query without a table") {
 
                 it("it will throw a MissingTableName exception") {
-                    expect{try queryOperation.executeQuery()}.toNot(throwError(SQLError.MissingTableName))
+                    expect{try queryOperation.executeQuery()}.to(throwError(SQLError.MissingTableName))
                 }
             }
 
