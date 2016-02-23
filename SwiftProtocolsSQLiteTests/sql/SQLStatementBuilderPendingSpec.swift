@@ -9,7 +9,7 @@ import Nimble
 
 class SQLStatementBuilderPendingSpec : QuickSpec {
     override func spec() {
-        describe("With a SQLLiteStatementBuilder") {
+        describe("With a SQLStatementBuilder") {
 
             // SQL INSERT
             context("when building an INSERT statement") {

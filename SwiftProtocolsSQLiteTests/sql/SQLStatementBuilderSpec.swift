@@ -9,13 +9,13 @@ import Nimble
 
 class SQLStatementBuilderSpec : QuickSpec {
     static let TABLE_NAME = "t"
-    static let COLUMN_ID = "a"
-    static let COLUMN_NAME = "b"
-    static let COLUMN_PLATFORM = "c"
-    static let COLUMNS = [COLUMN_ID, COLUMN_NAME, COLUMN_PLATFORM]
+    static let COLUMN_A = "a"
+    static let COLUMN_B = "b"
+    static let COLUMN_C = "c"
+    static let COLUMNS = [COLUMN_A, COLUMN_B, COLUMN_C]
 
     override func spec() {
-        describe("With a SQLLiteStatementBuilder") {
+        describe("With a SQLStatementBuilder") {
             var statementBuilder : SQLStatementBuilder!
 
             beforeEach {
@@ -32,7 +32,6 @@ class SQLStatementBuilderSpec : QuickSpec {
                         let generatedSQL = statementBuilder.buildInsertStatement(SQLStatementBuilderSpec.TABLE_NAME,
                                 columnNames: SQLStatementBuilderSpec.COLUMNS,
                                 useNamedParameters: true)
-                        print(generatedSQL)
                         expect(generatedSQL.lowercaseString).to(equal(sql.lowercaseString))
                     }
 
@@ -45,7 +44,6 @@ class SQLStatementBuilderSpec : QuickSpec {
                         let generatedSQL = statementBuilder.buildInsertStatement(SQLStatementBuilderSpec.TABLE_NAME,
                                 columnNames: SQLStatementBuilderSpec.COLUMNS,
                                 useNamedParameters: false)
-                        print(generatedSQL)
                         expect(generatedSQL.lowercaseString).to(equal(sql.lowercaseString))
                     }
 
@@ -62,7 +60,6 @@ class SQLStatementBuilderSpec : QuickSpec {
                         let generatedSQL = statementBuilder.buildDeleteStatement(
                             SQLStatementBuilderSpec.TABLE_NAME,
                             selection: nil)
-                        print(generatedSQL)
                         expect(generatedSQL.lowercaseString).to(equal(sql.lowercaseString))
                     }
 
@@ -75,7 +72,6 @@ class SQLStatementBuilderSpec : QuickSpec {
                         let generatedSQL = statementBuilder.buildDeleteStatement(
                         SQLStatementBuilderSpec.TABLE_NAME,
                                 selection: "b = ?")
-                        print(generatedSQL)
                         expect(generatedSQL.lowercaseString).to(equal(sql.lowercaseString))
                     }
 
@@ -91,10 +87,9 @@ class SQLStatementBuilderSpec : QuickSpec {
                         let sql = "update t set c = :c where b = \"Jeff Roberts\""
                         let generatedSQL = statementBuilder.buildUpdateStatement(
                         SQLStatementBuilderSpec.TABLE_NAME,
-                                updatingColumnNames: [SQLStatementBuilderSpec.COLUMN_PLATFORM],
+                                updatingColumnNames: [SQLStatementBuilderSpec.COLUMN_C],
                                 selection: "b = \"Jeff Roberts\"",
                                 useNamedParameters: true)
-                        print(generatedSQL)
                         expect(generatedSQL.lowercaseString).to(equal(sql.lowercaseString))
                     }
 
@@ -106,10 +101,9 @@ class SQLStatementBuilderSpec : QuickSpec {
                         let sql = "update t set c = ? where b = \"Jeff Roberts\""
                         let generatedSQL = statementBuilder.buildUpdateStatement(
                         SQLStatementBuilderSpec.TABLE_NAME,
-                                updatingColumnNames: [SQLStatementBuilderSpec.COLUMN_PLATFORM],
+                                updatingColumnNames: [SQLStatementBuilderSpec.COLUMN_C],
                                 selection: "b = \"Jeff Roberts\"",
                                 useNamedParameters: false)
-                        print(generatedSQL)
                         expect(generatedSQL.lowercaseString).to(equal(sql.lowercaseString))
                     }
 
@@ -129,7 +123,6 @@ class SQLStatementBuilderSpec : QuickSpec {
                             groupBy: nil,
                             having: nil,
                             sort: nil)
-                        print(sql)
                         expect(sql.lowercaseString).to(beginWith("select * from"))
                     }
 
@@ -145,7 +138,6 @@ class SQLStatementBuilderSpec : QuickSpec {
                                 groupBy: nil,
                                 having: nil,
                                 sort: nil)
-                        print(sql)
                         expect(sql.lowercaseString).to(beginWith("select a, b, c from"))
                     }
 
@@ -161,7 +153,6 @@ class SQLStatementBuilderSpec : QuickSpec {
                                 groupBy: nil,
                                 having: nil,
                                 sort: nil)
-                        print(sql)
                         expect(sql.lowercaseString).toNot(contain("where"))
                     }
 
@@ -177,7 +168,6 @@ class SQLStatementBuilderSpec : QuickSpec {
                                 groupBy: nil,
                                 having: nil,
                                 sort: nil)
-                        print(sql)
                         expect(sql.lowercaseString).to(contain("where"))
                     }
 
@@ -193,7 +183,6 @@ class SQLStatementBuilderSpec : QuickSpec {
                                 groupBy: nil,
                                 having: nil,
                                 sort: nil)
-                        print(sql)
                         expect(sql.lowercaseString).toNot(contain("group by"))
                     }
 
@@ -209,7 +198,6 @@ class SQLStatementBuilderSpec : QuickSpec {
                                 groupBy: "c",
                                 having: nil,
                                 sort: nil)
-                        print(sql)
                         expect(sql.lowercaseString).to(contain("group by"))
                     }
 
@@ -225,7 +213,6 @@ class SQLStatementBuilderSpec : QuickSpec {
                                 groupBy: nil,
                                 having: nil,
                                 sort: nil)
-                        print(sql)
                         expect(sql.lowercaseString).toNot(contain("having"))
                     }
 
@@ -241,7 +228,6 @@ class SQLStatementBuilderSpec : QuickSpec {
                                 groupBy: "c",
                                 having: "c = 'ios'",
                                 sort: nil)
-                        print(sql)
                         expect(sql.lowercaseString).to(contain("having"))
                     }
 
@@ -257,7 +243,6 @@ class SQLStatementBuilderSpec : QuickSpec {
                                 groupBy: nil,
                                 having: nil,
                                 sort: nil)
-                        print(sql)
                         expect(sql.lowercaseString).toNot(contain("order by"))
                     }
 
@@ -273,7 +258,6 @@ class SQLStatementBuilderSpec : QuickSpec {
                                 groupBy: nil,
                                 having: nil,
                                 sort: "c")
-                        print(sql)
                         expect(sql.lowercaseString).to(contain("order by"))
                     }
                 }
