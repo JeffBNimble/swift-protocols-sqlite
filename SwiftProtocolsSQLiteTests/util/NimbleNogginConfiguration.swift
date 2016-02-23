@@ -9,11 +9,15 @@ import Quick
 public var currentExampleFailed = false
 
 public class NimbleNogginConfiguration : QuickConfiguration {
+    static var testCount:Int = 0
+    static var passCount:Int = 0
+    static var startTime:NSDate!
     static var groups:NSMutableDictionary = NSMutableDictionary()
 
     override public static func configure(configuration: Configuration) {
         configuration.beforeEach() { (metadata:ExampleMetadata) in
             currentExampleFailed = false
+            testCount = testCount + 1
         }
 
         configuration.afterEach() { (metadata:ExampleMetadata) in
@@ -34,10 +38,31 @@ public class NimbleNogginConfiguration : QuickConfiguration {
             }
 
             previousGroup[trimmedSegment] = currentExampleFailed ? "F" : "P"
+            if !currentExampleFailed {
+                passCount = passCount + 1
+            }
+        }
+
+        configuration.beforeSuite() {
+            testCount = 0
+            passCount = 0
+            startTime = NSDate()
         }
 
         configuration.afterSuite() {
             printTestResults(groups, prefix: "")
+            let duration = startTime.timeIntervalSinceNow
+            var interval:String!
+            if duration < 0.1 {
+                interval = "\(duration * -1000.0)ms"
+            } else if duration < 60.0 {
+                interval = "\(duration * -1.0)s"
+            } else if duration >= 60.0 {
+                interval = "\(duration * -60.0)m"
+            }
+
+            print("\n\n\(testCount) tests run in \(interval)")
+            print("\(passCount) pass/\(testCount - passCount) fail")
         }
     }
 
@@ -45,7 +70,7 @@ public class NimbleNogginConfiguration : QuickConfiguration {
          results.allKeys.forEach() { key in
             if let segment = key as? String {
                 var testResult = ""
-                var value = results[segment]
+                let value = results[segment]
 
                 if let result = value as? String {
                     testResult = result == "P" ? "\u{001B}[1m\u{001B}[032;m[PASSED]\u{001B}[0m" : "\u{001B}[1m\u{001B}[031;m[FAILED]\u{001B}[0m"
