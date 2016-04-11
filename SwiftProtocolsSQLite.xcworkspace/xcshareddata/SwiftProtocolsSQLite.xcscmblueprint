@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "5756DF5E909C3619077EAAC288E945996ED779E6",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "5756DF5E909C3619077EAAC288E945996ED779E6" : 0,
+    "95438028B10BBB846574013D29F154A00556A9D1" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "FF0BCDB3-3BF7-453D-93A7-671A79D687B7",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "5756DF5E909C3619077EAAC288E945996ED779E6" : "swift-protocols-sqlite\/",
+    "95438028B10BBB846574013D29F154A00556A9D1" : "swift-protocols-sqlite\/Carthage\/Checkouts\/Quick\/Externals\/Nimble\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SwiftProtocolsSQLite",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SwiftProtocolsSQLite.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:JeffBNimble\/swift-protocols-sqlite.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5756DF5E909C3619077EAAC288E945996ED779E6"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Quick\/Nimble.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "95438028B10BBB846574013D29F154A00556A9D1"
+    }
+  ]
+}

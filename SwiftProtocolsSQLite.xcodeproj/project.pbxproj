@@ -7,17 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		54C18426F62F752D4C4DED62 /* SQLStatementBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C189D1ACB252C5D0EA5A23 /* SQLStatementBuilderSpec.swift */; };
 		54C184E364184D92A6728B3E /* MockSQLiteDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18D50365EC660B965D6C6 /* MockSQLiteDatabase.swift */; };
-		54C1855FBC533763ADFA59BE /* SQLQueryOperationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18D94B359194F6DD4E9CD /* SQLQueryOperationSpec.swift */; };
 		54C186885E57813198BC6001 /* SQLUpdateOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18D4DCF995F84AE4C91CD /* SQLUpdateOperation.swift */; };
 		54C186E50EEF5852754B634E /* SQLiteOpenHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18B4E91F258CF8C5C566C /* SQLiteOpenHelper.swift */; };
 		54C1873AE4B479FDA05A2597 /* MockCursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18C28831FA0F8262C227A /* MockCursor.swift */; };
-		54C1893A649A2CAA08ACBAB8 /* SQLStatementBuilderPendingSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18AEE345BF89B10D4921E /* SQLStatementBuilderPendingSpec.swift */; };
 		54C1899F25C7BEFB63F6976A /* SQLQueryOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18062CB7EE55D2D3486D1 /* SQLQueryOperation.swift */; };
-		54C18AB29115D0CF38645434 /* SQLQueryOperationPendingSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C184C9B71D7AC05BBC32CB /* SQLQueryOperationPendingSpec.swift */; };
 		54C18CC6D934EA649C190E9D /* SQLStatementBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C1871099AA1D09D4EA2674 /* SQLStatementBuilder.swift */; };
-		54C18DD77E786FD00137C0FF /* NimbleNogginConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18E7976CD1A54C394FDAA /* NimbleNogginConfiguration.swift */; };
 		54C18E4D4F5A97E91F45E0D6 /* SQLiteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18523FB07F45191F37CC9 /* SQLiteOperation.swift */; };
 		54C18F0BE59736BF6B675518 /* SQLStatementBuilderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C183EB9EAF00A8261ABC65 /* SQLStatementBuilderTest.swift */; };
 		A52E80D81B6D1FDA00DE54E7 /* SwiftProtocolsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A52E80D71B6D1FDA00DE54E7 /* SwiftProtocolsCore.framework */; };
@@ -29,16 +24,30 @@
 		A55765D21C6455A6003BA358 /* SwiftProtocolsCore.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A55765CD1C6455A6003BA358 /* SwiftProtocolsCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A55765D31C64CBE4003BA358 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A55765CB1C6455A6003BA358 /* Nimble.framework */; };
 		A55765D41C64CBE4003BA358 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A55765CC1C6455A6003BA358 /* Quick.framework */; };
+		A5674ADD1CBBB240008B51C1 /* SwiftProtocolsSQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B158921B5332C9009CDCB1 /* SwiftProtocolsSQLite.framework */; };
+		A5674AE71CBBB2F0008B51C1 /* MockSQLiteDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18D50365EC660B965D6C6 /* MockSQLiteDatabase.swift */; };
+		A5674AE81CBBB2F5008B51C1 /* MockCursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C18C28831FA0F8262C227A /* MockCursor.swift */; };
+		A5674AF01CBBB990008B51C1 /* SQLQueryOperationPendingSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5674AEA1CBBB990008B51C1 /* SQLQueryOperationPendingSpec.swift */; };
+		A5674AF11CBBB990008B51C1 /* SQLQueryOperationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5674AEB1CBBB990008B51C1 /* SQLQueryOperationSpec.swift */; };
+		A5674AF21CBBB990008B51C1 /* SQLStatementBuilderPendingSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5674AEC1CBBB990008B51C1 /* SQLStatementBuilderPendingSpec.swift */; };
+		A5674AF31CBBB990008B51C1 /* SQLStatementBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5674AED1CBBB990008B51C1 /* SQLStatementBuilderSpec.swift */; };
+		A5674AF41CBBB990008B51C1 /* NimbleNogginConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5674AEF1CBBB990008B51C1 /* NimbleNogginConfiguration.swift */; };
 		A59DE1611B82B9ED004EF8DD /* DatabaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59DE1601B82B9EC004EF8DD /* DatabaseFactory.swift */; };
 		A5B158961B5332C9009CDCB1 /* SwiftProtocolsSQLite.h in Headers */ = {isa = PBXBuildFile; fileRef = A5B158951B5332C9009CDCB1 /* SwiftProtocolsSQLite.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5B1589D1B5332C9009CDCB1 /* SwiftProtocolsSQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B158921B5332C9009CDCB1 /* SwiftProtocolsSQLite.framework */; };
-		A5B158A21B5332C9009CDCB1 /* SwiftProtocolsSQLiteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B158A11B5332C9009CDCB1 /* SwiftProtocolsSQLiteTests.swift */; };
 		A5B158B01B533315009CDCB1 /* Cursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B158AD1B533315009CDCB1 /* Cursor.swift */; };
 		A5B158B11B533315009CDCB1 /* SQLiteDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B158AE1B533315009CDCB1 /* SQLiteDatabase.swift */; };
 		A5C5A58F1B8A6E46001732E3 /* CocoaLumberjackSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5C5A58E1B8A6E46001732E3 /* CocoaLumberjackSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A5674ADE1CBBB240008B51C1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A5B158891B5332C9009CDCB1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A5B158911B5332C9009CDCB1;
+			remoteInfo = SwiftProtocolsSQLite;
+		};
 		A5B1589E1B5332C9009CDCB1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A5B158891B5332C9009CDCB1 /* Project object */;
@@ -68,17 +77,12 @@
 /* Begin PBXFileReference section */
 		54C18062CB7EE55D2D3486D1 /* SQLQueryOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLQueryOperation.swift; sourceTree = "<group>"; };
 		54C183EB9EAF00A8261ABC65 /* SQLStatementBuilderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLStatementBuilderTest.swift; sourceTree = "<group>"; };
-		54C184C9B71D7AC05BBC32CB /* SQLQueryOperationPendingSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLQueryOperationPendingSpec.swift; sourceTree = "<group>"; };
 		54C18523FB07F45191F37CC9 /* SQLiteOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteOperation.swift; sourceTree = "<group>"; };
 		54C1871099AA1D09D4EA2674 /* SQLStatementBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLStatementBuilder.swift; sourceTree = "<group>"; };
-		54C189D1ACB252C5D0EA5A23 /* SQLStatementBuilderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLStatementBuilderSpec.swift; sourceTree = "<group>"; };
-		54C18AEE345BF89B10D4921E /* SQLStatementBuilderPendingSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLStatementBuilderPendingSpec.swift; sourceTree = "<group>"; };
 		54C18B4E91F258CF8C5C566C /* SQLiteOpenHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SQLiteOpenHelper.swift; path = SwiftProtocolsSQLite/database/util/SQLiteOpenHelper.swift; sourceTree = SOURCE_ROOT; };
 		54C18C28831FA0F8262C227A /* MockCursor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockCursor.swift; sourceTree = "<group>"; };
 		54C18D4DCF995F84AE4C91CD /* SQLUpdateOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLUpdateOperation.swift; sourceTree = "<group>"; };
 		54C18D50365EC660B965D6C6 /* MockSQLiteDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockSQLiteDatabase.swift; sourceTree = "<group>"; };
-		54C18D94B359194F6DD4E9CD /* SQLQueryOperationSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLQueryOperationSpec.swift; sourceTree = "<group>"; };
-		54C18E7976CD1A54C394FDAA /* NimbleNogginConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NimbleNogginConfiguration.swift; sourceTree = "<group>"; };
 		A52E80D71B6D1FDA00DE54E7 /* SwiftProtocolsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtocolsCore.framework; path = "Carthage/Checkouts/swift-protocols-core/build/Debug-iphoneos/SwiftProtocolsCore.framework"; sourceTree = "<group>"; };
 		A55765B61C644B5A003BA358 /* CocoaLumberjackSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjackSwift.framework; path = "Carthage/Checkouts/CocoaLumberjack/build/Debug-iphoneos/CocoaLumberjackSwift.framework"; sourceTree = "<group>"; };
 		A55765BF1C645449003BA358 /* CocoaLumberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjack.framework; path = "Carthage/Checkouts/CocoaLumberjack/build/Debug-iphoneos/CocoaLumberjack.framework"; sourceTree = "<group>"; };
@@ -87,13 +91,19 @@
 		A55765CB1C6455A6003BA358 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		A55765CC1C6455A6003BA358 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		A55765CD1C6455A6003BA358 /* SwiftProtocolsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtocolsCore.framework; path = Carthage/Build/iOS/SwiftProtocolsCore.framework; sourceTree = "<group>"; };
+		A5674AD81CBBB23F008B51C1 /* SwiftProtocolsSQLiteSpecs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftProtocolsSQLiteSpecs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5674ADC1CBBB240008B51C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5674AEA1CBBB990008B51C1 /* SQLQueryOperationPendingSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLQueryOperationPendingSpec.swift; sourceTree = "<group>"; };
+		A5674AEB1CBBB990008B51C1 /* SQLQueryOperationSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLQueryOperationSpec.swift; sourceTree = "<group>"; };
+		A5674AEC1CBBB990008B51C1 /* SQLStatementBuilderPendingSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLStatementBuilderPendingSpec.swift; sourceTree = "<group>"; };
+		A5674AED1CBBB990008B51C1 /* SQLStatementBuilderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLStatementBuilderSpec.swift; sourceTree = "<group>"; };
+		A5674AEF1CBBB990008B51C1 /* NimbleNogginConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NimbleNogginConfiguration.swift; sourceTree = "<group>"; };
 		A574A6E31B607EDD0015478F /* CocoaLumberjackSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjackSwift.framework; path = "Carthage/Checkouts/CocoaLumberjack/build/Debug-iphoneos/CocoaLumberjackSwift.framework"; sourceTree = "<group>"; };
 		A59DE1601B82B9EC004EF8DD /* DatabaseFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseFactory.swift; sourceTree = "<group>"; };
 		A5B158921B5332C9009CDCB1 /* SwiftProtocolsSQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftProtocolsSQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5B158951B5332C9009CDCB1 /* SwiftProtocolsSQLite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftProtocolsSQLite.h; sourceTree = "<group>"; };
 		A5B158971B5332C9009CDCB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5B1589C1B5332C9009CDCB1 /* SwiftProtocolsSQLiteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftProtocolsSQLiteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A5B158A11B5332C9009CDCB1 /* SwiftProtocolsSQLiteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftProtocolsSQLiteTests.swift; sourceTree = "<group>"; };
 		A5B158A31B5332C9009CDCB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5B158AD1B533315009CDCB1 /* Cursor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cursor.swift; sourceTree = "<group>"; };
 		A5B158AE1B533315009CDCB1 /* SQLiteDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteDatabase.swift; sourceTree = "<group>"; };
@@ -101,6 +111,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A5674AD51CBBB23F008B51C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5674ADD1CBBB240008B51C1 /* SwiftProtocolsSQLite.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A5B1588E1B5332C9009CDCB1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -127,10 +145,6 @@
 		54C181CA14E4FCA4C7054A16 /* sql */ = {
 			isa = PBXGroup;
 			children = (
-				54C18AEE345BF89B10D4921E /* SQLStatementBuilderPendingSpec.swift */,
-				54C189D1ACB252C5D0EA5A23 /* SQLStatementBuilderSpec.swift */,
-				54C184C9B71D7AC05BBC32CB /* SQLQueryOperationPendingSpec.swift */,
-				54C18D94B359194F6DD4E9CD /* SQLQueryOperationSpec.swift */,
 				54C183EB9EAF00A8261ABC65 /* SQLStatementBuilderTest.swift */,
 			);
 			path = sql;
@@ -165,10 +179,31 @@
 			path = sql;
 			sourceTree = "<group>";
 		};
-		54C1894EFC33A96340958FCA /* util */ = {
+		A5674AD91CBBB240008B51C1 /* SwiftProtocolsSQLiteSpecs */ = {
 			isa = PBXGroup;
 			children = (
-				54C18E7976CD1A54C394FDAA /* NimbleNogginConfiguration.swift */,
+				A5674AE91CBBB990008B51C1 /* sql */,
+				A5674AEE1CBBB990008B51C1 /* util */,
+				A5674ADC1CBBB240008B51C1 /* Info.plist */,
+			);
+			path = SwiftProtocolsSQLiteSpecs;
+			sourceTree = "<group>";
+		};
+		A5674AE91CBBB990008B51C1 /* sql */ = {
+			isa = PBXGroup;
+			children = (
+				A5674AEA1CBBB990008B51C1 /* SQLQueryOperationPendingSpec.swift */,
+				A5674AEB1CBBB990008B51C1 /* SQLQueryOperationSpec.swift */,
+				A5674AEC1CBBB990008B51C1 /* SQLStatementBuilderPendingSpec.swift */,
+				A5674AED1CBBB990008B51C1 /* SQLStatementBuilderSpec.swift */,
+			);
+			path = sql;
+			sourceTree = "<group>";
+		};
+		A5674AEE1CBBB990008B51C1 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				A5674AEF1CBBB990008B51C1 /* NimbleNogginConfiguration.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -188,6 +223,7 @@
 				A574A6E31B607EDD0015478F /* CocoaLumberjackSwift.framework */,
 				A5B158941B5332C9009CDCB1 /* SwiftProtocolsSQLite */,
 				A5B158A01B5332C9009CDCB1 /* SwiftProtocolsSQLiteTests */,
+				A5674AD91CBBB240008B51C1 /* SwiftProtocolsSQLiteSpecs */,
 				A5B158931B5332C9009CDCB1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -197,6 +233,7 @@
 			children = (
 				A5B158921B5332C9009CDCB1 /* SwiftProtocolsSQLite.framework */,
 				A5B1589C1B5332C9009CDCB1 /* SwiftProtocolsSQLiteTests.xctest */,
+				A5674AD81CBBB23F008B51C1 /* SwiftProtocolsSQLiteSpecs.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -215,11 +252,9 @@
 		A5B158A01B5332C9009CDCB1 /* SwiftProtocolsSQLiteTests */ = {
 			isa = PBXGroup;
 			children = (
-				A5B158A11B5332C9009CDCB1 /* SwiftProtocolsSQLiteTests.swift */,
 				A5B158A31B5332C9009CDCB1 /* Info.plist */,
 				54C181CA14E4FCA4C7054A16 /* sql */,
 				54C18375F2EB96875C8AEC50 /* helper */,
-				54C1894EFC33A96340958FCA /* util */,
 			);
 			path = SwiftProtocolsSQLiteTests;
 			sourceTree = "<group>";
@@ -249,6 +284,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		A5674AD71CBBB23F008B51C1 /* SwiftProtocolsSQLiteSpecs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5674AE21CBBB240008B51C1 /* Build configuration list for PBXNativeTarget "SwiftProtocolsSQLiteSpecs" */;
+			buildPhases = (
+				A5674AD41CBBB23F008B51C1 /* Sources */,
+				A5674AD51CBBB23F008B51C1 /* Frameworks */,
+				A5674AD61CBBB23F008B51C1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A5674ADF1CBBB240008B51C1 /* PBXTargetDependency */,
+			);
+			name = SwiftProtocolsSQLiteSpecs;
+			productName = SwiftProtocolsSQLiteSpecs;
+			productReference = A5674AD81CBBB23F008B51C1 /* SwiftProtocolsSQLiteSpecs.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		A5B158911B5332C9009CDCB1 /* SwiftProtocolsSQLite */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A5B158A61B5332C9009CDCB1 /* Build configuration list for PBXNativeTarget "SwiftProtocolsSQLite" */;
@@ -292,9 +345,13 @@
 		A5B158891B5332C9009CDCB1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = NimbleNoggin.io;
 				TargetAttributes = {
+					A5674AD71CBBB23F008B51C1 = {
+						CreatedOnToolsVersion = 7.3;
+					};
 					A5B158911B5332C9009CDCB1 = {
 						CreatedOnToolsVersion = 7.0;
 					};
@@ -317,11 +374,19 @@
 			targets = (
 				A5B158911B5332C9009CDCB1 /* SwiftProtocolsSQLite */,
 				A5B1589B1B5332C9009CDCB1 /* SwiftProtocolsSQLiteTests */,
+				A5674AD71CBBB23F008B51C1 /* SwiftProtocolsSQLiteSpecs */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A5674AD61CBBB23F008B51C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A5B158901B5332C9009CDCB1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -339,6 +404,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A5674AD41CBBB23F008B51C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5674AF11CBBB990008B51C1 /* SQLQueryOperationSpec.swift in Sources */,
+				A5674AE71CBBB2F0008B51C1 /* MockSQLiteDatabase.swift in Sources */,
+				A5674AF41CBBB990008B51C1 /* NimbleNogginConfiguration.swift in Sources */,
+				A5674AF31CBBB990008B51C1 /* SQLStatementBuilderSpec.swift in Sources */,
+				A5674AF21CBBB990008B51C1 /* SQLStatementBuilderPendingSpec.swift in Sources */,
+				A5674AF01CBBB990008B51C1 /* SQLQueryOperationPendingSpec.swift in Sources */,
+				A5674AE81CBBB2F5008B51C1 /* MockCursor.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A5B1588D1B5332C9009CDCB1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -358,14 +437,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5B158A21B5332C9009CDCB1 /* SwiftProtocolsSQLiteTests.swift in Sources */,
-				54C1893A649A2CAA08ACBAB8 /* SQLStatementBuilderPendingSpec.swift in Sources */,
-				54C18426F62F752D4C4DED62 /* SQLStatementBuilderSpec.swift in Sources */,
-				54C18AB29115D0CF38645434 /* SQLQueryOperationPendingSpec.swift in Sources */,
-				54C1855FBC533763ADFA59BE /* SQLQueryOperationSpec.swift in Sources */,
 				54C184E364184D92A6728B3E /* MockSQLiteDatabase.swift in Sources */,
 				54C1873AE4B479FDA05A2597 /* MockCursor.swift in Sources */,
-				54C18DD77E786FD00137C0FF /* NimbleNogginConfiguration.swift in Sources */,
 				54C18F0BE59736BF6B675518 /* SQLStatementBuilderTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -373,6 +446,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A5674ADF1CBBB240008B51C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A5B158911B5332C9009CDCB1 /* SwiftProtocolsSQLite */;
+			targetProxy = A5674ADE1CBBB240008B51C1 /* PBXContainerItemProxy */;
+		};
 		A5B1589F1B5332C9009CDCB1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A5B158911B5332C9009CDCB1 /* SwiftProtocolsSQLite */;
@@ -381,6 +459,30 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		A5674AE01CBBB240008B51C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = SwiftProtocolsSQLiteSpecs/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.nimblenoggin.SwiftProtocolsSQLiteSpecs;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A5674AE11CBBB240008B51C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = SwiftProtocolsSQLiteSpecs/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.nimblenoggin.SwiftProtocolsSQLiteSpecs;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		A5B158A41B5332C9009CDCB1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -559,6 +661,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A5674AE21CBBB240008B51C1 /* Build configuration list for PBXNativeTarget "SwiftProtocolsSQLiteSpecs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5674AE01CBBB240008B51C1 /* Debug */,
+				A5674AE11CBBB240008B51C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		A5B1588C1B5332C9009CDCB1 /* Build configuration list for PBXProject "SwiftProtocolsSQLite" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
