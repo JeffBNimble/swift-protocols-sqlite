@@ -15,7 +15,7 @@ class SQLStatementBuilderSpec : QuickSpec {
     static let COLUMNS = [COLUMN_A, COLUMN_B, COLUMN_C]
 
     override func spec() {
-        describe("With a SQLStatementBuilder") {
+        describe("Given a SQLStatementBuilder") {
             var statementBuilder : SQLStatementBuilder!
 
             beforeEach {
@@ -27,7 +27,7 @@ class SQLStatementBuilderSpec : QuickSpec {
 
                 context("with named parameters") {
 
-                    it("it should generate a valid SQL INSERT statement") {
+                    it("then it should generate a valid SQL INSERT statement") {
                         let sql = "insert into t (a, b, c) values (:a, :b, :c)"
                         let generatedSQL = statementBuilder.buildInsertStatement(SQLStatementBuilderSpec.TABLE_NAME,
                                 columnNames: SQLStatementBuilderSpec.COLUMNS,
@@ -39,7 +39,7 @@ class SQLStatementBuilderSpec : QuickSpec {
 
                 context("with parameter markers") {
 
-                    it("it should generate a valid SQL INSERT statement") {
+                    it("then it should generate a valid SQL INSERT statement") {
                         let sql = "insert into t (a, b, c) values (?, ?, ?)"
                         let generatedSQL = statementBuilder.buildInsertStatement(SQLStatementBuilderSpec.TABLE_NAME,
                                 columnNames: SQLStatementBuilderSpec.COLUMNS,
@@ -55,7 +55,7 @@ class SQLStatementBuilderSpec : QuickSpec {
 
                 context("without a selection specified") {
 
-                    it("it should generate a valid SQL DELETE statement without a WHERE clause") {
+                    it("then it should generate a valid SQL DELETE statement without a WHERE clause") {
                         let sql = "delete from t"
                         let generatedSQL = statementBuilder.buildDeleteStatement(
                             SQLStatementBuilderSpec.TABLE_NAME,
@@ -67,7 +67,7 @@ class SQLStatementBuilderSpec : QuickSpec {
 
                 context("with a selection specified") {
 
-                    it("it should generate a valid SQL DELETE statement with a WHERE clause") {
+                    it("then it should generate a valid SQL DELETE statement with a WHERE clause") {
                         let sql = "delete from t where b = ?"
                         let generatedSQL = statementBuilder.buildDeleteStatement(
                         SQLStatementBuilderSpec.TABLE_NAME,
@@ -83,7 +83,7 @@ class SQLStatementBuilderSpec : QuickSpec {
 
                 context("with named parameters") {
 
-                    it("it should generate a valid SQL UPDATE statement") {
+                    it("then it should generate a valid SQL UPDATE statement") {
                         let sql = "update t set c = :c where b = \"Jeff Roberts\""
                         let generatedSQL = statementBuilder.buildUpdateStatement(
                         SQLStatementBuilderSpec.TABLE_NAME,
@@ -97,7 +97,7 @@ class SQLStatementBuilderSpec : QuickSpec {
 
                 context("with parameter markers") {
 
-                    it("it should generate a valid SQL UPDATE statement") {
+                    it("then it should generate a valid SQL UPDATE statement") {
                         let sql = "update t set c = ? where b = \"Jeff Roberts\""
                         let generatedSQL = statementBuilder.buildUpdateStatement(
                         SQLStatementBuilderSpec.TABLE_NAME,
@@ -115,7 +115,7 @@ class SQLStatementBuilderSpec : QuickSpec {
 
                 context("without a projection specified") {
 
-                    it("it should generate '*' for the projection") {
+                    it("then it should generate '*' for the projection") {
                         let sql = statementBuilder.buildSelectStatement(
                             SQLStatementBuilderSpec.TABLE_NAME,
                             projection: nil,
@@ -130,7 +130,7 @@ class SQLStatementBuilderSpec : QuickSpec {
 
                 context("with a projection specified") {
 
-                    it("it should generate a selection clause for each column in the projection") {
+                    it("then it should generate a selection clause for each column in the projection") {
                         let sql = statementBuilder.buildSelectStatement(
                         SQLStatementBuilderSpec.TABLE_NAME,
                                 projection: SQLStatementBuilderSpec.COLUMNS,
@@ -145,7 +145,7 @@ class SQLStatementBuilderSpec : QuickSpec {
 
                 context("without a selection specified") {
 
-                    it("it should not generate a WHERE clause") {
+                    it("then it should not generate a WHERE clause") {
                         let sql = statementBuilder.buildSelectStatement(
                         SQLStatementBuilderSpec.TABLE_NAME,
                                 projection: nil,
@@ -160,7 +160,7 @@ class SQLStatementBuilderSpec : QuickSpec {
 
                 context("with a selection specified") {
 
-                    it("it should generate a valid WHERE clause") {
+                    it("then it should generate a valid WHERE clause") {
                         let sql = statementBuilder.buildSelectStatement(
                         SQLStatementBuilderSpec.TABLE_NAME,
                                 projection: nil,
@@ -175,7 +175,7 @@ class SQLStatementBuilderSpec : QuickSpec {
 
                 context("without a group by specified") {
 
-                    it("it should not generate a GROUP BY clause") {
+                    it("then it should not generate a GROUP BY clause") {
                         let sql = statementBuilder.buildSelectStatement(
                         SQLStatementBuilderSpec.TABLE_NAME,
                                 projection: nil,
@@ -190,7 +190,7 @@ class SQLStatementBuilderSpec : QuickSpec {
 
                 context("with a group by specified") {
 
-                    it("it should generate a valid GROUP BY clause") {
+                    it("then it should generate a valid GROUP BY clause") {
                         let sql = statementBuilder.buildSelectStatement(
                         SQLStatementBuilderSpec.TABLE_NAME,
                                 projection: nil,
@@ -205,7 +205,7 @@ class SQLStatementBuilderSpec : QuickSpec {
 
                 context("without a having specified") {
 
-                    it("it should not generate a HAVING clause") {
+                    it("then it should not generate a HAVING clause") {
                         let sql = statementBuilder.buildSelectStatement(
                         SQLStatementBuilderSpec.TABLE_NAME,
                                 projection: nil,
@@ -220,7 +220,7 @@ class SQLStatementBuilderSpec : QuickSpec {
 
                 context("with a having specified") {
 
-                    it("it should generate a valid HAVING clause") {
+                    it("then it should generate a valid HAVING clause") {
                         let sql = statementBuilder.buildSelectStatement(
                         SQLStatementBuilderSpec.TABLE_NAME,
                                 projection: nil,
@@ -235,7 +235,7 @@ class SQLStatementBuilderSpec : QuickSpec {
 
                 context("without a sort specified") {
 
-                    it("it should not generate an ORDER BY clause") {
+                    it("then it should not generate an ORDER BY clause") {
                         let sql = statementBuilder.buildSelectStatement(
                         SQLStatementBuilderSpec.TABLE_NAME,
                                 projection: nil,
@@ -250,7 +250,7 @@ class SQLStatementBuilderSpec : QuickSpec {
 
                 context("with a sort specified") {
 
-                    it("it should generate a valid ORDER BY clause") {
+                    it("then it should generate a valid ORDER BY clause") {
                         let sql = statementBuilder.buildSelectStatement(
                         SQLStatementBuilderSpec.TABLE_NAME,
                                 projection: nil,

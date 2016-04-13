@@ -9,7 +9,7 @@ import Nimble
 
 class SQLQueryOperationSpec : QuickSpec {
     override func spec() {
-        describe("With a SQLQueryOperation") {
+        describe("Given a SQLQueryOperation") {
 
             var queryOperation : SQLQueryOperation!
             var sqlStatementBuilder : SQLStatementBuilder!
@@ -23,14 +23,14 @@ class SQLQueryOperationSpec : QuickSpec {
 
             context("when executing a query without a table") {
 
-                it("it will throw a MissingTableName exception") {
+                it("then it will throw a MissingTableName exception") {
                     expect{try queryOperation.executeQuery()}.to(throwError(SQLError.MissingTableName))
                 }
             }
 
             context("when executing a query with named parameters") {
 
-                it("it will execute the query against the database") {
+                it("then it will execute the query against the database") {
                     queryOperation.tableName = "myTable"
                     queryOperation.namedSelectionArgs = ["platform": "ios"]
                     do { try queryOperation.executeQuery() } catch _ { fail("No exception expected") }
@@ -44,7 +44,7 @@ class SQLQueryOperationSpec : QuickSpec {
 
             context("when executing a query with an array of parameters") {
 
-                it("it will execute the query against the database") {
+                it("then it will execute the query against the database") {
                     queryOperation.tableName = "myTable"
                     queryOperation.selectionArgs = ["ios"]
                     do { try queryOperation.executeQuery() } catch _ { fail("No exception expected") }
