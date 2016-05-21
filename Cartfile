@@ -1,2 +1,2 @@
-github "CocoaLumberjack/CocoaLumberjack" "5a9f42c"
-github "JeffBNimble/swift-protocols-core" == 0.0.7
+github "SwiftyBeaver/SwiftyBeaver" == 0.5.4
+github "JeffBNimble/swift-protocols-core" == 0.0.8

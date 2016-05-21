@@ -4,7 +4,7 @@
 //
 
 import Foundation
-import CocoaLumberjackSwift
+import SwiftyBeaver
 
 /**
 
@@ -14,6 +14,8 @@ or deletes in a single database table.
 */
 @objc
 public class SQLUpdateOperation: SQLiteOperation {
+    private let logger = SwiftyBeaver.self
+
     /// An optional map of values that will be inserted/updated where the key is the column name and
     /// the value is the column value
     public var contentValues:[String: AnyObject]?
@@ -32,10 +34,10 @@ public class SQLUpdateOperation: SQLiteOperation {
         let hasNamedParameters = self.namedSelectionArgs != nil
         let statement = self.statementBuilder.buildDeleteStatement(table, selection: self.selection)
         if hasNamedParameters {
-            DDLogVerbose("Executing \(statement) with named parameters: \(self.namedSelectionArgs)")
+            logger.debug("Executing \(statement) with named parameters: \(self.namedSelectionArgs)")
             return try self.database.executeUpdate(statement, parameters:self.namedSelectionArgs)
         } else {
-            DDLogVerbose("Executing \(statement) with parameters: \(self.selectionArgs)")
+            logger.debug("Executing \(statement) with parameters: \(self.selectionArgs)")
             return try self.database.executeUpdate(statement, parameters:self.selectionArgs)
         }
     }
@@ -52,7 +54,7 @@ public class SQLUpdateOperation: SQLiteOperation {
         }
 
         let statement = self.statementBuilder.buildInsertStatement(table, columnNames: Array(values.keys), useNamedParameters: true)
-        DDLogVerbose("Executing \(statement) with values: \(values)")
+        logger.debug("Executing \(statement) with values: \(values)")
         return try self.database.executeUpdate(statement, parameters: values)
     }
 
@@ -77,10 +79,10 @@ public class SQLUpdateOperation: SQLiteOperation {
 
         if hasNamedParameters {
             let mergedValues = self.merge(values, second:self.namedSelectionArgs)
-            DDLogVerbose("Executing \(statement) with named parameters: \(mergedValues)")
+            logger.debug("Executing \(statement) with named parameters: \(mergedValues)")
             return try self.database.executeUpdate(statement, parameters:mergedValues)
         } else {
-            DDLogVerbose("Executing \(statement) with parameters: \(self.selectionArgs)")
+            logger.debug("Executing \(statement) with parameters: \(self.selectionArgs)")
             return try self.database.executeUpdate(statement, parameters:self.selectionArgs)
         }
     }

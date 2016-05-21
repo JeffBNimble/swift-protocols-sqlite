@@ -4,10 +4,12 @@
 //
 
 import Foundation
-import CocoaLumberjackSwift
+import SwiftyBeaver
 
 @objc
 public class SQLQueryOperation : SQLiteOperation {
+    private let logger = SwiftyBeaver.self
+
     public var groupBy:String?
     public var having:String?
     public var projection:[String]?
@@ -30,10 +32,10 @@ public class SQLQueryOperation : SQLiteOperation {
                 sort: self.sort)
         let hasNamedParameters = self.namedSelectionArgs != nil
         if hasNamedParameters {
-            DDLogVerbose("Executing \(statement) with named parameters: \(self.namedSelectionArgs)")
+            logger.debug("Executing \(statement) with named parameters: \(self.namedSelectionArgs)")
             return try self.database.executeQuery(statement, parameters:self.namedSelectionArgs)
         } else {
-            DDLogVerbose("Executing \(statement) with parameters: \(self.selectionArgs)")
+            logger.debug("Executing \(statement) with parameters: \(self.selectionArgs)")
             return try self.database.executeQuery(statement, parameters:self.selectionArgs)
         }
     }
